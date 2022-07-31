@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		41F3540F288FD25E00145F6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F3540E288FD25E00145F6E /* AppDelegate.swift */; };
+		41F35411288FD25E00145F6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F35410288FD25E00145F6E /* SceneDelegate.swift */; };
+		41F35413288FD25E00145F6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F35412288FD25E00145F6E /* ViewController.swift */; };
+		41F35416288FD25E00145F6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41F35414288FD25E00145F6E /* Main.storyboard */; };
+		41F35418288FD26600145F6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41F35417288FD26600145F6E /* Assets.xcassets */; };
+		41F3541B288FD26600145F6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41F35419288FD26600145F6E /* LaunchScreen.storyboard */; };
+		41F35426288FD26600145F6E /* Scenc_MultiUnwindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F35425288FD26600145F6E /* Scenc_MultiUnwindTests.swift */; };
+		41F35431288FD26600145F6E /* Scenc_MultiUnwindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F35430288FD26600145F6E /* Scenc_MultiUnwindUITests.swift */; };
+		41F35442288FDA9F00145F6E /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F35441288FDA9F00145F6E /* Page2ViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		41F35422288FD26600145F6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41F35403288FD25E00145F6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41F3540A288FD25E00145F6E;
+			remoteInfo = "Scenc-MultiUnwind";
+		};
+		41F3542D288FD26600145F6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41F35403288FD25E00145F6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41F3540A288FD25E00145F6E;
+			remoteInfo = "Scenc-MultiUnwind";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		41F3540B288FD25E00145F6E /* Scenc-MultiUnwind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scenc-MultiUnwind.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41F3540E288FD25E00145F6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		41F35410288FD25E00145F6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		41F35412288FD25E00145F6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		41F35415288FD25E00145F6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		41F35417288FD26600145F6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		41F3541A288FD26600145F6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		41F3541C288FD26600145F6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41F35421288FD26600145F6E /* Scenc-MultiUnwindTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scenc-MultiUnwindTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41F35425288FD26600145F6E /* Scenc_MultiUnwindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenc_MultiUnwindTests.swift; sourceTree = "<group>"; };
+		41F35427288FD26600145F6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41F3542C288FD26600145F6E /* Scenc-MultiUnwindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scenc-MultiUnwindUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41F35430288FD26600145F6E /* Scenc_MultiUnwindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenc_MultiUnwindUITests.swift; sourceTree = "<group>"; };
+		41F35432288FD26600145F6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41F35441288FDA9F00145F6E /* Page2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		41F35408288FD25E00145F6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41F3541E288FD26600145F6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41F35429288FD26600145F6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		41F35402288FD25E00145F6E = {
+			isa = PBXGroup;
+			children = (
+				41F3540D288FD25E00145F6E /* Scenc-MultiUnwind */,
+				41F35424288FD26600145F6E /* Scenc-MultiUnwindTests */,
+				41F3542F288FD26600145F6E /* Scenc-MultiUnwindUITests */,
+				41F3540C288FD25E00145F6E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		41F3540C288FD25E00145F6E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41F3540B288FD25E00145F6E /* Scenc-MultiUnwind.app */,
+				41F35421288FD26600145F6E /* Scenc-MultiUnwindTests.xctest */,
+				41F3542C288FD26600145F6E /* Scenc-MultiUnwindUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		41F3540D288FD25E00145F6E /* Scenc-MultiUnwind */ = {
+			isa = PBXGroup;
+			children = (
+				41F3540E288FD25E00145F6E /* AppDelegate.swift */,
+				41F35410288FD25E00145F6E /* SceneDelegate.swift */,
+				41F35412288FD25E00145F6E /* ViewController.swift */,
+				41F35414288FD25E00145F6E /* Main.storyboard */,
+				41F35441288FDA9F00145F6E /* Page2ViewController.swift */,
+				41F35417288FD26600145F6E /* Assets.xcassets */,
+				41F35419288FD26600145F6E /* LaunchScreen.storyboard */,
+				41F3541C288FD26600145F6E /* Info.plist */,
+			);
+			path = "Scenc-MultiUnwind";
+			sourceTree = "<group>";
+		};
+		41F35424288FD26600145F6E /* Scenc-MultiUnwindTests */ = {
+			isa = PBXGroup;
+			children = (
+				41F35425288FD26600145F6E /* Scenc_MultiUnwindTests.swift */,
+				41F35427288FD26600145F6E /* Info.plist */,
+			);
+			path = "Scenc-MultiUnwindTests";
+			sourceTree = "<group>";
+		};
+		41F3542F288FD26600145F6E /* Scenc-MultiUnwindUITests */ = {
+			isa = PBXGroup;
+			children = (
+				41F35430288FD26600145F6E /* Scenc_MultiUnwindUITests.swift */,
+				41F35432288FD26600145F6E /* Info.plist */,
+			);
+			path = "Scenc-MultiUnwindUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		41F3540A288FD25E00145F6E /* Scenc-MultiUnwind */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41F35435288FD26600145F6E /* Build configuration list for PBXNativeTarget "Scenc-MultiUnwind" */;
+			buildPhases = (
+				41F35407288FD25E00145F6E /* Sources */,
+				41F35408288FD25E00145F6E /* Frameworks */,
+				41F35409288FD25E00145F6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Scenc-MultiUnwind";
+			productName = "Scenc-MultiUnwind";
+			productReference = 41F3540B288FD25E00145F6E /* Scenc-MultiUnwind.app */;
+			productType = "com.apple.product-type.application";
+		};
+		41F35420288FD26600145F6E /* Scenc-MultiUnwindTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41F35438288FD26600145F6E /* Build configuration list for PBXNativeTarget "Scenc-MultiUnwindTests" */;
+			buildPhases = (
+				41F3541D288FD26600145F6E /* Sources */,
+				41F3541E288FD26600145F6E /* Frameworks */,
+				41F3541F288FD26600145F6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41F35423288FD26600145F6E /* PBXTargetDependency */,
+			);
+			name = "Scenc-MultiUnwindTests";
+			productName = "Scenc-MultiUnwindTests";
+			productReference = 41F35421288FD26600145F6E /* Scenc-MultiUnwindTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		41F3542B288FD26600145F6E /* Scenc-MultiUnwindUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41F3543B288FD26600145F6E /* Build configuration list for PBXNativeTarget "Scenc-MultiUnwindUITests" */;
+			buildPhases = (
+				41F35428288FD26600145F6E /* Sources */,
+				41F35429288FD26600145F6E /* Frameworks */,
+				41F3542A288FD26600145F6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41F3542E288FD26600145F6E /* PBXTargetDependency */,
+			);
+			name = "Scenc-MultiUnwindUITests";
+			productName = "Scenc-MultiUnwindUITests";
+			productReference = 41F3542C288FD26600145F6E /* Scenc-MultiUnwindUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		41F35403288FD25E00145F6E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					41F3540A288FD25E00145F6E = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					41F35420288FD26600145F6E = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 41F3540A288FD25E00145F6E;
+					};
+					41F3542B288FD26600145F6E = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 41F3540A288FD25E00145F6E;
+					};
+				};
+			};
+			buildConfigurationList = 41F35406288FD25E00145F6E /* Build configuration list for PBXProject "Scenc-MultiUnwind" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 41F35402288FD25E00145F6E;
+			productRefGroup = 41F3540C288FD25E00145F6E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				41F3540A288FD25E00145F6E /* Scenc-MultiUnwind */,
+				41F35420288FD26600145F6E /* Scenc-MultiUnwindTests */,
+				41F3542B288FD26600145F6E /* Scenc-MultiUnwindUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		41F35409288FD25E00145F6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41F3541B288FD26600145F6E /* LaunchScreen.storyboard in Resources */,
+				41F35418288FD26600145F6E /* Assets.xcassets in Resources */,
+				41F35416288FD25E00145F6E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41F3541F288FD26600145F6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41F3542A288FD26600145F6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		41F35407288FD25E00145F6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41F35413288FD25E00145F6E /* ViewController.swift in Sources */,
+				41F3540F288FD25E00145F6E /* AppDelegate.swift in Sources */,
+				41F35442288FDA9F00145F6E /* Page2ViewController.swift in Sources */,
+				41F35411288FD25E00145F6E /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41F3541D288FD26600145F6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41F35426288FD26600145F6E /* Scenc_MultiUnwindTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41F35428288FD26600145F6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41F35431288FD26600145F6E /* Scenc_MultiUnwindUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		41F35423288FD26600145F6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41F3540A288FD25E00145F6E /* Scenc-MultiUnwind */;
+			targetProxy = 41F35422288FD26600145F6E /* PBXContainerItemProxy */;
+		};
+		41F3542E288FD26600145F6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41F3540A288FD25E00145F6E /* Scenc-MultiUnwind */;
+			targetProxy = 41F3542D288FD26600145F6E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		41F35414288FD25E00145F6E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41F35415288FD25E00145F6E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		41F35419288FD26600145F6E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41F3541A288FD26600145F6E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		41F35433288FD26600145F6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		41F35434288FD26600145F6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		41F35436288FD26600145F6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Scenc-MultiUnwind/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "HSB.Scenc-MultiUnwind";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		41F35437288FD26600145F6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Scenc-MultiUnwind/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "HSB.Scenc-MultiUnwind";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		41F35439288FD26600145F6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Scenc-MultiUnwindTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "HSB.Scenc-MultiUnwindTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scenc-MultiUnwind.app/Scenc-MultiUnwind";
+			};
+			name = Debug;
+		};
+		41F3543A288FD26600145F6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Scenc-MultiUnwindTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "HSB.Scenc-MultiUnwindTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scenc-MultiUnwind.app/Scenc-MultiUnwind";
+			};
+			name = Release;
+		};
+		41F3543C288FD26600145F6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Scenc-MultiUnwindUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "HSB.Scenc-MultiUnwindUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Scenc-MultiUnwind";
+			};
+			name = Debug;
+		};
+		41F3543D288FD26600145F6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Scenc-MultiUnwindUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "HSB.Scenc-MultiUnwindUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Scenc-MultiUnwind";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		41F35406288FD25E00145F6E /* Build configuration list for PBXProject "Scenc-MultiUnwind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41F35433288FD26600145F6E /* Debug */,
+				41F35434288FD26600145F6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41F35435288FD26600145F6E /* Build configuration list for PBXNativeTarget "Scenc-MultiUnwind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41F35436288FD26600145F6E /* Debug */,
+				41F35437288FD26600145F6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41F35438288FD26600145F6E /* Build configuration list for PBXNativeTarget "Scenc-MultiUnwindTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41F35439288FD26600145F6E /* Debug */,
+				41F3543A288FD26600145F6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41F3543B288FD26600145F6E /* Build configuration list for PBXNativeTarget "Scenc-MultiUnwindUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41F3543C288FD26600145F6E /* Debug */,
+				41F3543D288FD26600145F6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 41F35403288FD25E00145F6E /* Project object */;
+}
