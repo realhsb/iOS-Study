@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4165EC0528900D8D0050513B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165EC0428900D8D0050513B /* AppDelegate.swift */; };
+		4165EC0728900D8D0050513B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165EC0628900D8D0050513B /* SceneDelegate.swift */; };
+		4165EC0928900D8D0050513B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165EC0828900D8D0050513B /* ViewController.swift */; };
+		4165EC0C28900D8D0050513B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4165EC0A28900D8D0050513B /* Main.storyboard */; };
+		4165EC0E28900D950050513B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4165EC0D28900D950050513B /* Assets.xcassets */; };
+		4165EC1128900D950050513B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4165EC0F28900D950050513B /* LaunchScreen.storyboard */; };
+		4165EC1C28900D950050513B /* Scene_CustomSegueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165EC1B28900D950050513B /* Scene_CustomSegueTests.swift */; };
+		4165EC2728900D950050513B /* Scene_CustomSegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165EC2628900D950050513B /* Scene_CustomSegueUITests.swift */; };
+		4165EC3828900DAD0050513B /* NewSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165EC3728900DAD0050513B /* NewSegue.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4165EC1828900D950050513B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4165EBF928900D8D0050513B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4165EC0028900D8D0050513B;
+			remoteInfo = "Scene-CustomSegue";
+		};
+		4165EC2328900D950050513B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4165EBF928900D8D0050513B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4165EC0028900D8D0050513B;
+			remoteInfo = "Scene-CustomSegue";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4165EC0128900D8D0050513B /* Scene-CustomSegue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scene-CustomSegue.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4165EC0428900D8D0050513B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4165EC0628900D8D0050513B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4165EC0828900D8D0050513B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4165EC0B28900D8D0050513B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4165EC0D28900D950050513B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4165EC1028900D950050513B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4165EC1228900D950050513B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4165EC1728900D950050513B /* Scene-CustomSegueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scene-CustomSegueTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4165EC1B28900D950050513B /* Scene_CustomSegueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene_CustomSegueTests.swift; sourceTree = "<group>"; };
+		4165EC1D28900D950050513B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4165EC2228900D950050513B /* Scene-CustomSegueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scene-CustomSegueUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4165EC2628900D950050513B /* Scene_CustomSegueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene_CustomSegueUITests.swift; sourceTree = "<group>"; };
+		4165EC2828900D950050513B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4165EC3728900DAD0050513B /* NewSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSegue.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4165EBFE28900D8D0050513B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4165EC1428900D950050513B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4165EC1F28900D950050513B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4165EBF828900D8D0050513B = {
+			isa = PBXGroup;
+			children = (
+				4165EC0328900D8D0050513B /* Scene-CustomSegue */,
+				4165EC1A28900D950050513B /* Scene-CustomSegueTests */,
+				4165EC2528900D950050513B /* Scene-CustomSegueUITests */,
+				4165EC0228900D8D0050513B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4165EC0228900D8D0050513B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4165EC0128900D8D0050513B /* Scene-CustomSegue.app */,
+				4165EC1728900D950050513B /* Scene-CustomSegueTests.xctest */,
+				4165EC2228900D950050513B /* Scene-CustomSegueUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4165EC0328900D8D0050513B /* Scene-CustomSegue */ = {
+			isa = PBXGroup;
+			children = (
+				4165EC0428900D8D0050513B /* AppDelegate.swift */,
+				4165EC0628900D8D0050513B /* SceneDelegate.swift */,
+				4165EC0828900D8D0050513B /* ViewController.swift */,
+				4165EC0A28900D8D0050513B /* Main.storyboard */,
+				4165EC0D28900D950050513B /* Assets.xcassets */,
+				4165EC0F28900D950050513B /* LaunchScreen.storyboard */,
+				4165EC1228900D950050513B /* Info.plist */,
+				4165EC3728900DAD0050513B /* NewSegue.swift */,
+			);
+			path = "Scene-CustomSegue";
+			sourceTree = "<group>";
+		};
+		4165EC1A28900D950050513B /* Scene-CustomSegueTests */ = {
+			isa = PBXGroup;
+			children = (
+				4165EC1B28900D950050513B /* Scene_CustomSegueTests.swift */,
+				4165EC1D28900D950050513B /* Info.plist */,
+			);
+			path = "Scene-CustomSegueTests";
+			sourceTree = "<group>";
+		};
+		4165EC2528900D950050513B /* Scene-CustomSegueUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4165EC2628900D950050513B /* Scene_CustomSegueUITests.swift */,
+				4165EC2828900D950050513B /* Info.plist */,
+			);
+			path = "Scene-CustomSegueUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4165EC0028900D8D0050513B /* Scene-CustomSegue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4165EC2B28900D950050513B /* Build configuration list for PBXNativeTarget "Scene-CustomSegue" */;
+			buildPhases = (
+				4165EBFD28900D8D0050513B /* Sources */,
+				4165EBFE28900D8D0050513B /* Frameworks */,
+				4165EBFF28900D8D0050513B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Scene-CustomSegue";
+			productName = "Scene-CustomSegue";
+			productReference = 4165EC0128900D8D0050513B /* Scene-CustomSegue.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4165EC1628900D950050513B /* Scene-CustomSegueTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4165EC2E28900D950050513B /* Build configuration list for PBXNativeTarget "Scene-CustomSegueTests" */;
+			buildPhases = (
+				4165EC1328900D950050513B /* Sources */,
+				4165EC1428900D950050513B /* Frameworks */,
+				4165EC1528900D950050513B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4165EC1928900D950050513B /* PBXTargetDependency */,
+			);
+			name = "Scene-CustomSegueTests";
+			productName = "Scene-CustomSegueTests";
+			productReference = 4165EC1728900D950050513B /* Scene-CustomSegueTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4165EC2128900D950050513B /* Scene-CustomSegueUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4165EC3128900D950050513B /* Build configuration list for PBXNativeTarget "Scene-CustomSegueUITests" */;
+			buildPhases = (
+				4165EC1E28900D950050513B /* Sources */,
+				4165EC1F28900D950050513B /* Frameworks */,
+				4165EC2028900D950050513B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4165EC2428900D950050513B /* PBXTargetDependency */,
+			);
+			name = "Scene-CustomSegueUITests";
+			productName = "Scene-CustomSegueUITests";
+			productReference = 4165EC2228900D950050513B /* Scene-CustomSegueUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4165EBF928900D8D0050513B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					4165EC0028900D8D0050513B = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					4165EC1628900D950050513B = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 4165EC0028900D8D0050513B;
+					};
+					4165EC2128900D950050513B = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 4165EC0028900D8D0050513B;
+					};
+				};
+			};
+			buildConfigurationList = 4165EBFC28900D8D0050513B /* Build configuration list for PBXProject "Scene-CustomSegue" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4165EBF828900D8D0050513B;
+			productRefGroup = 4165EC0228900D8D0050513B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4165EC0028900D8D0050513B /* Scene-CustomSegue */,
+				4165EC1628900D950050513B /* Scene-CustomSegueTests */,
+				4165EC2128900D950050513B /* Scene-CustomSegueUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4165EBFF28900D8D0050513B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4165EC1128900D950050513B /* LaunchScreen.storyboard in Resources */,
+				4165EC0E28900D950050513B /* Assets.xcassets in Resources */,
+				4165EC0C28900D8D0050513B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4165EC1528900D950050513B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4165EC2028900D950050513B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4165EBFD28900D8D0050513B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4165EC3828900DAD0050513B /* NewSegue.swift in Sources */,
+				4165EC0928900D8D0050513B /* ViewController.swift in Sources */,
+				4165EC0528900D8D0050513B /* AppDelegate.swift in Sources */,
+				4165EC0728900D8D0050513B /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4165EC1328900D950050513B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4165EC1C28900D950050513B /* Scene_CustomSegueTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4165EC1E28900D950050513B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4165EC2728900D950050513B /* Scene_CustomSegueUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4165EC1928900D950050513B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4165EC0028900D8D0050513B /* Scene-CustomSegue */;
+			targetProxy = 4165EC1828900D950050513B /* PBXContainerItemProxy */;
+		};
+		4165EC2428900D950050513B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4165EC0028900D8D0050513B /* Scene-CustomSegue */;
+			targetProxy = 4165EC2328900D950050513B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4165EC0A28900D8D0050513B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4165EC0B28900D8D0050513B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4165EC0F28900D950050513B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4165EC1028900D950050513B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4165EC2928900D950050513B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4165EC2A28900D950050513B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4165EC2C28900D950050513B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Scene-CustomSegue/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "HSB.Scene-CustomSegue";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4165EC2D28900D950050513B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Scene-CustomSegue/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "HSB.Scene-CustomSegue";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4165EC2F28900D950050513B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Scene-CustomSegueTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "HSB.Scene-CustomSegueTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scene-CustomSegue.app/Scene-CustomSegue";
+			};
+			name = Debug;
+		};
+		4165EC3028900D950050513B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Scene-CustomSegueTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "HSB.Scene-CustomSegueTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scene-CustomSegue.app/Scene-CustomSegue";
+			};
+			name = Release;
+		};
+		4165EC3228900D950050513B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Scene-CustomSegueUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "HSB.Scene-CustomSegueUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Scene-CustomSegue";
+			};
+			name = Debug;
+		};
+		4165EC3328900D950050513B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Scene-CustomSegueUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "HSB.Scene-CustomSegueUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Scene-CustomSegue";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4165EBFC28900D8D0050513B /* Build configuration list for PBXProject "Scene-CustomSegue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4165EC2928900D950050513B /* Debug */,
+				4165EC2A28900D950050513B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4165EC2B28900D950050513B /* Build configuration list for PBXNativeTarget "Scene-CustomSegue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4165EC2C28900D950050513B /* Debug */,
+				4165EC2D28900D950050513B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4165EC2E28900D950050513B /* Build configuration list for PBXNativeTarget "Scene-CustomSegueTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4165EC2F28900D950050513B /* Debug */,
+				4165EC3028900D950050513B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4165EC3128900D950050513B /* Build configuration list for PBXNativeTarget "Scene-CustomSegueUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4165EC3228900D950050513B /* Debug */,
+				4165EC3328900D950050513B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4165EBF928900D8D0050513B /* Project object */;
+}
