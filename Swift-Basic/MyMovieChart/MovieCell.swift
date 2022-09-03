@@ -9,5 +9,5 @@ class MovieCell: UITableViewCell {
     
     @IBOutlet var rating: UILabel!
    
-    @IBOutlet var thumnail: UIImageView!
+    @IBOutlet var thumbnail: UIImageView!
 }
