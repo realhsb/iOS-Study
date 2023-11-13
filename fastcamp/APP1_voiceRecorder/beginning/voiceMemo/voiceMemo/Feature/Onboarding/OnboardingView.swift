@@ -14,7 +14,7 @@ struct OnboardingView: View {
       NavigationStack(path: $pathModel.paths) {  // pathModel를 가지고 뒤로 빠지거나 왔다갔다 -> .environmentObject 로 선언
             OnboardingContentView(onboardingViewModel: onboardingViewModel)
               .navigationDestination(
-                for: PathType.self,
+                for: PathType.self,         // 구분자 PathType
                 destination: { pathType in  // 타입에 따라 어느 뷰로 갈지
                     switch pathType {
                     case .homeView:
