@@ -144,6 +144,7 @@ private struct MemoCellView: View {
 	fileprivate var body: some View {	// 클릭돼서 다음 뷰로 넘어감... 버튼으로 구현
 		Button {
 			// TODO: - path 관련 메모 구현 후, 구현하기
+			pathModel.paths.append(.memoView(isCreateMode: false, memo: memo))		// 변수로 선언한 memo 넣기
 			
 		} label: {
 			VStack(spacing: 10) {
@@ -195,6 +196,7 @@ private struct WriteMemoBtnView: View {
 				
 				Button(action: {
 					// TODO: - 메모 뷰 구현 후, 돌아와서 구현 필요!
+					pathModel.paths.append(.memoView(isCreateMode: true, memo: nil))
 				}, label: {
 					Image("writeBtn")
 				})

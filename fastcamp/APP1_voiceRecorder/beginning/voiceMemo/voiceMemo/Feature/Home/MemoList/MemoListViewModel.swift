@@ -59,7 +59,7 @@ extension MemoListViewModel {
 				isEditMemoMode = false
 			} else {	// 메모가 있따
 				// 삭제 얼럿 상태값 변경을 위한 메서드 호출
-				
+				setIsDisplayRemoveMemoAlert(true)
 			}
 			
 		} else { // edit 모드가 아니다?

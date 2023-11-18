@@ -6,16 +6,17 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @StateObject private var pathModel = PathModel()
-    @StateObject private var onboardingViewModel = OnboardingViewModel()
+	@StateObject private var pathModel = PathModel()
+	@StateObject private var onboardingViewModel = OnboardingViewModel()
 	@StateObject private var todoListViewModel = TodoListViewModel()
+	@StateObject private var memoListViewModel = MemoListViewModel()	// 전역적으로 메모 리스트뷰에서 메모 리스트뷰모델을 가지고 있음
+	
   var body: some View {
       // TODO: - 화면 전환 구현 필요
-//      OnboardingContentView(onboardingViewModel: onboardingViewModel)
       NavigationStack(path: $pathModel.paths) {  // pathModel를 가지고 뒤로 빠지거나 왔다갔다 -> .environmentObject 로 선언
 //            OnboardingContentView(onboardingViewModel: onboardingViewModel)
-				TodoListView()
-					.environmentObject(todoListViewModel)
+				MemoListView()
+					.environmentObject(memoListViewModel)
               .navigationDestination(
                 for: PathType.self,         // 구분자 PathType
                 destination: { pathType in  // 타입에 따라 어느 뷰로 갈지
@@ -29,9 +30,15 @@ struct OnboardingView: View {
                             .navigationBarBackButtonHidden()
 														.environmentObject(todoListViewModel)	// todoListViewModel을 보여줌. path 타입에 따라 todoView를 보여줌. 그래서 todoListViewModel 주입해야 함 
                         
-                    case .memoView:
-                        MemoView()
+                    case let .memoView(isCreateMode, memo):	// 모드가 2개 (생성, 뷰어로 들어가서 생성)
+                        MemoView(
+													memoViewModel: isCreateMode
+													? .init(memo: .init(title: "", content: "", date: .now))		// 생성 모드일 경우 -> 메모 비어있음
+													: .init(memo: memo ?? .init(title: "", content: "", date: .now)),	// 뷰어 모드 or 편집 다시
+													isCreateMode: isCreateMode
+												)
                             .navigationBarBackButtonHidden()
+														.environmentObject(memoListViewModel)
                     }
                 }
               )
