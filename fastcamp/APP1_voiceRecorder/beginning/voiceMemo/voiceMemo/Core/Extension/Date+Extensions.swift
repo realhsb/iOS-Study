@@ -6,6 +6,8 @@
 import Foundation
 
 extension Date {
+	
+	// Todo, Memo
     var formattedTime: String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
@@ -31,4 +33,12 @@ extension Date {
             return formatter.string(from: self)
         }
     }
+	
+	// Voice Recoder
+	var fomattedVoiceRecoderTime: String {
+		let formatter = DateFormatter()
+		formatter.locale = Locale(identifier: "ko_KR")
+		formatter.dateFormat = "yyyy.M.d"	// 2023년 9월 8일
+		return formatter.string(from: self)
+	}
 }
