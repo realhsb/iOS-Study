@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 class TimerViewModel: ObservableObject {
 	@Published var isDisplaySetTimeView: Bool	// 뷰를 2타입으로 보여줌
@@ -11,19 +12,22 @@ class TimerViewModel: ObservableObject {
 	@Published var timer: Timer?
 	@Published var timeRemaining: Int
 	@Published var isPaused: Bool
+	var notificationService: NotificationService	// 서비스 객체 가져오기.
 	
 	init(
 		isDisplaySetTimeView: Bool = true,	// 설정된 값이 없으므로 트루
 		time: Time = .init(hours: 0, minutes: 0, seconds: 0),
 		timer: Timer? = nil,
 		timeRemaining: Int = 0,
-		isPaused: Bool = false
+		isPaused: Bool = false,
+		notificationService: NotificationService = .init()
 	) {
 		self.isDisplaySetTimeView = isDisplaySetTimeView
 		self.time = time
 		self.timer = timer
 		self.timeRemaining = timeRemaining
 		self.isPaused = isPaused
+		self.notificationService = notificationService
 	}
 }
 
@@ -63,8 +67,22 @@ extension TimerViewModel {
 // func 앞에 private를 붙이지 않아도 private이 됨
 private extension TimerViewModel {
 	
+	// 타이머 시작될 때, 노티 실행
+	
 	func startTImer() {
 		guard timer == nil else { return }	// 닐이 아니어야 타이머 세팅
+		
+		// 백그라운드에서도 노티가 동작하게끔 만듦.
+		
+		var backgroundTaskID: UIBackgroundTaskIdentifier?	// 작업 아이디 저장 변수
+		backgroundTaskID = UIApplication.shared.beginBackgroundTask {	// 앱이 백그라운드로 전환됐을 때도 앱이 작업됨.
+			if let task = backgroundTaskID {
+				// id가 없을 경우
+				UIApplication.shared.endBackgroundTask(task)	// 백그라운드 작업 중지
+				backgroundTaskID = .invalid	// 무효화
+			}
+		}
+		
 		
 		timer = Timer.scheduledTimer(
 			withTimeInterval: 1,		// 1초씩 변화
@@ -74,7 +92,16 @@ private extension TimerViewModel {
 					self.timeRemaining -= 1	// 1초씩 감소
 				} else {	// remaining 시간이 없으면 타이머 종료
 					// TODO: - 타이머 종료 메서드 호출
-					self.stopTimer()		// captuer closure라 self 붙여야 함 
+					self.stopTimer()		// captuer closure라 self 붙여야 함
+					
+					/// 시간이 종료되고 나서 노티 설정 -> 여기서 설정하면 foreground에서 작동 중일 때 노티가 뜸. background 상태일 때는 작동 X
+					 self.notificationService.sendNotification()
+					
+					if let task = backgroundTaskID {
+						// id가 없을 경우
+						UIApplication.shared.endBackgroundTask(task) // 백그라운드 작업 중지
+						backgroundTaskID = .invalid	// 무효화
+					}
 				}
 			}
 		)

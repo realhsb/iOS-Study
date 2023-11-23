@@ -94,7 +94,7 @@ private struct TimerPickerView: View {
 					}
 				}
 				
-				Picker("Second", selection: $timerViewModel.time.hours) {
+				Picker("Second", selection: $timerViewModel.time.seconds) {
 					ForEach(0..<60) { second in		// 1 - 59초
 						Text("\(second)초")
 					}
