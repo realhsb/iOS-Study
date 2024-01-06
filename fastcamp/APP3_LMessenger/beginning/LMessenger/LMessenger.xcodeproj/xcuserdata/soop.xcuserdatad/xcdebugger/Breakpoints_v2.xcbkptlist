@@ -3,4 +3,54 @@
    uuid = "A3AE7102-6A45-4665-BC48-8B16F9D25567"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "666EF1EE-7B85-4F48-BE1D-B7C9ADB67607"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LMessenger/Service/AuthenticationService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "signInWithGoogle(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "666EF1EE-7B85-4F48-BE1D-B7C9ADB67607 - b1fce81f9ca2318"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.GIDSignInResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LMessenger.AuthenticationService.signInWithGoogle(completion: (Swift.Result&lt;LMessenger.User, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/soop/git/iOS-Study/fastcamp/APP3_LMessenger/beginning/LMessenger/LMessenger/Service/AuthenticationService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "666EF1EE-7B85-4F48-BE1D-B7C9ADB67607 - b1fce81f9ca2318"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.GIDSignInResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LMessenger.AuthenticationService.signInWithGoogle(completion: (Swift.Result&lt;LMessenger.User, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/soop/git/iOS-Study/fastcamp/APP3_LMessenger/beginning/LMessenger/LMessenger/Service/AuthenticationService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "548">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
