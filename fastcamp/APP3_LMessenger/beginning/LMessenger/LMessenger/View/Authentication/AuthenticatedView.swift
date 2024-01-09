@@ -10,14 +10,20 @@ import SwiftUI
 struct AuthenticatedView: View {
     @StateObject var authViewModel: AuthenticationViewModel // 뷰모델 초기화 시점 -> 이 뷰를 만들 때. 왜? 뷰모델에서 컨테이너를 초기화할 때 주입해줄 예정.
     var body: some View {
-        switch authViewModel.authenticationState {
-        case .unauthenticated:
-            LoginIntroView()
-                .environmentObject(authViewModel)
-        case .authenticated:
-            MainTabView()
+        VStack {
+            switch authViewModel.authenticationState {
+            case .unauthenticated:
+                LoginIntroView()
+                    .environmentObject(authViewModel)
+            case .authenticated:
+                MainTabView()
+            }
+        }
+        .onAppear {
+            authViewModel.send(action: .checkAuthenticationState)   // 상태가 업데이트됐다면, 그 상태에 따라 뷰를 보여줄 것
         }
     }
+        
 }
 
 #Preview {

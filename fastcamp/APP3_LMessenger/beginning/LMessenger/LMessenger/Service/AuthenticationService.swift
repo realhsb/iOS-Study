@@ -20,17 +20,29 @@ enum AuthenticationError: Error {
 // 뷰모델과 서비스, 프로바이더 레이어를 컴바인으로 연결
 
 protocol AuthenticationServiceType {
-    // 서비스에서 다루는 에러타입 추가 
+    func checkAuthenticationState() -> String?  // 로그인 유지
+    
+    // 서비스에서 다루는 에러타입 추가
     func signInWithGoogle() -> AnyPublisher<User, ServiceError>
 }
 
-class AuthenticationService: AuthenticationServiceType {    // 구현체 완성! 서비스에 추가하기.
+class AuthenticationService: AuthenticationServiceType {
+    
+    func checkAuthenticationState() -> String? {
+        // 파베 사용. 현재 유저 정보가 있는지 체크 -> 그에 대한 유저 정보 추출
+        if let user = Auth.auth().currentUser {
+            return user.uid
+        } else {
+            return nil
+        }
+    }
+    // 구현체 완성! 서비스에 추가하기.
     /* 구글 로그인은 컴바인을 제공하지 않음
      응답으로 컴플리션 핸들러 구현, 그 핸들러를 가지고 퓨처로 퍼블리셔 생성
     */
     
     // 아래 작업한 내용을 가지고 퍼블리셔 만들기
-    func signInWithGoogle() -> AnyPublisher<User, ServiceError> {
+    func signInWithGoogle() -> AnyPublisher<User, ServiceError> { // 성공하면 User 정보가 방출됨 
         Future { [weak self] promise in // 이 작업이 완료되면, 결과값을 방출하고 끝내는 퍼블리셔
             self?.signInWithGoogle { result in
                 switch result {
@@ -115,6 +127,10 @@ extension AuthenticationService {
 
 // 프리뷰용 서비스 
 class StubAuthenticationService: AuthenticationServiceType {
+    
+    func checkAuthenticationState() -> String? {
+        return nil
+    }
      
     func signInWithGoogle() -> AnyPublisher<User, ServiceError> {
         Empty().eraseToAnyPublisher()
