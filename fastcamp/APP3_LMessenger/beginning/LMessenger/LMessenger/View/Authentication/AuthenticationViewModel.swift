@@ -46,16 +46,20 @@ class AuthenticationViewModel: ObservableObject {
             }
             
         case .googleLogin:
-            container.services.authService.signInWithGoogle()
+            isLoading = true
             
             container.services.authService.signInWithGoogle()   // -> AnyPublisher<User, ServiceError> : 성공시 User 정보가 방출됨
             // TODO: 로그인 성공 후 db에 추가
                 .flatMap { user in
                     self.container.services.userService.addUser(user) // 로그인 성공 후 db에 추가
                 }
+                .sink { [weak self] completion in   // sink 했을 때 subscription이 반환, 뷰모델에서는 구독이 여러 개 가능. 이를 subsription을 set으로 해서 알림
+                    if case .failure = completion { // 실패
+                        self?.isLoading = false
                     }
                     
                 } receiveValue: { [weak self] user in   // 유저 정보가 오면, 이 뷰모델에서 유저 아이디 갖게 하기
+                    self?.isLoading = false
                     self?.userId = user.id
                     self?.authenticationState = .authenticated
                 }.store(in: &subsriptions) // sub을 통해 구독을 하면, subscriptions 변수에 저장됨

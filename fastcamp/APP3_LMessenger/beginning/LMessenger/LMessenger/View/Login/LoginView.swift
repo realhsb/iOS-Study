@@ -33,20 +33,30 @@ struct LoginView: View {
                 Text("Google로 로그인")
             }).buttonStyle(LoginButtonStyle(textColor: .bkText, borderColor: .greyLight))
             
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Button {
+                
+            } label: {
                 Text("Apple로 로그인")
-            }).buttonStyle(LoginButtonStyle(textColor: .bkText, borderColor: .greyLight))
-                .navigationBarBackButtonHidden()
-                .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarLeading) {
-                        Button {
-                            // TODO: back
-                            dismiss()
-                        } label: {
-                            Image("back")
-                        }
-                    }
+            }.buttonStyle(LoginButtonStyle(textColor: .bkText, borderColor: .greyLight))
+                
+                
+        }
+        
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarLeading) {
+                Button {
+                    // TODO: back
+                    dismiss()
+                } label: {
+                    Image("back")
                 }
+            }
+        }
+        .overlay {
+            if authViewModel.isLoading {
+                ProgressView()
+            }
         }
     }
 }
