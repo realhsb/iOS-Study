@@ -20,10 +20,16 @@ enum AuthenticationError: Error {
 // 뷰모델과 서비스, 프로바이더 레이어를 컴바인으로 연결
 
 protocol AuthenticationServiceType {
+    // MARK: - 구글 로그인
     func checkAuthenticationState() -> String?  // 로그인 유지
     
     // 서비스에서 다루는 에러타입 추가
     func signInWithGoogle() -> AnyPublisher<User, ServiceError>
+    
+    // TODO: Apple Login
+    
+    // MARK: - 로그아웃
+    func logout() -> AnyPublisher<Void, ServiceError>
 }
 
 class AuthenticationService: AuthenticationServiceType {
@@ -54,6 +60,20 @@ class AuthenticationService: AuthenticationServiceType {
             }
         }.eraseToAnyPublisher()
         // 만든 퍼블리셔 뷰모델에 연결하기
+    }
+    
+    //TODO: - Apple Login
+    
+    // MARK: - logout
+    func logout() -> AnyPublisher<Void, ServiceError> {
+        Future { promise in
+            do {
+                try Auth.auth().signOut()
+                promise(.success(()))
+            } catch {
+                promise(.failure(.error(error)))
+            }
+        }.eraseToAnyPublisher()
     }
 }
 
@@ -133,6 +153,10 @@ class StubAuthenticationService: AuthenticationServiceType {
     }
      
     func signInWithGoogle() -> AnyPublisher<User, ServiceError> {
+        Empty().eraseToAnyPublisher()
+    }
+    
+    func logout() -> AnyPublisher<Void, ServiceError> {
         Empty().eraseToAnyPublisher()
     }
 }

@@ -12,6 +12,7 @@ import Combine
 enum AuthenticationState {
     case unauthenticated
     case authenticated
+
 }
 
 class AuthenticationViewModel: ObservableObject {
@@ -20,6 +21,8 @@ class AuthenticationViewModel: ObservableObject {
     enum Action {
         case checkAuthenticationState
         case googleLogin
+        
+        case logout
     }
     
     // 로그인 상태에 따라 뷰를 브랜치하므로 @Published로 선언
@@ -63,6 +66,17 @@ class AuthenticationViewModel: ObservableObject {
                     self?.userId = user.id
                     self?.authenticationState = .authenticated
                 }.store(in: &subsriptions) // sub을 통해 구독을 하면, subscriptions 변수에 저장됨
+            
+        // TODO: - Apple Login
+            
+        // MARK: - logout
+        case .logout:
+            container.services.authService.logout()
+                .sink { completion in
+                } receiveValue: { [weak self] _ in
+                    self?.authenticationState = .unauthenticated
+                    self?.userId = nil
+                }.store(in: &subsriptions)
         }
     }
 }
