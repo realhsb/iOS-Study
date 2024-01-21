@@ -11,6 +11,7 @@ import Combine
 protocol UserServiceType {
     // 서비스이므로 DTO가 아닌 User 모델을 받음
     func addUser(_ user: User) -> AnyPublisher<User, ServiceError>
+    func getUser(userId: String) -> AnyPublisher<User, ServiceError>
 }
 
 class UserService: UserServiceType {
@@ -29,6 +30,12 @@ class UserService: UserServiceType {
             .eraseToAnyPublisher()
     }
     
+    func getUser(userId: String) -> AnyPublisher<User, ServiceError> {
+        dpRepository.getUser(userId: userId)    // 리턴 값으로 UserObject가 날라옴
+            .map { $0.toModel() }    // UserObject를 User로 변환
+            .mapError { .error($0) }
+            .eraseToAnyPublisher()
+    }
 }
 
 class StubUserService: UserServiceType {
@@ -38,4 +45,7 @@ class StubUserService: UserServiceType {
     }
     // DB 주입 받아서 해당 레파지토리에 접근 가능
     
+    func getUser(userId: String) -> AnyPublisher<User, ServiceError> {
+        Empty().eraseToAnyPublisher()
+    }
 }
