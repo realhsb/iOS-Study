@@ -16,3 +16,17 @@ struct UserObject: Codable {
     var profileURL: String?
     var description: String?
 }
+
+extension UserObject {
+    func toModel() -> User {
+        .init(
+            id: id,
+            name: name,
+            phoneNumber: phoneNumber,
+            profileURL: profileURL,
+            description: description
+        )
+    }
+}
+
+    
