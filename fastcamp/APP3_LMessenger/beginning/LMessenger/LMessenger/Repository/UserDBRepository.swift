@@ -16,6 +16,7 @@ protocol UserDBRepositoryType {
     // DB 레이어에서 다룰 수 있는 에러 타입
     func addUser(_ object: UserObject) -> AnyPublisher<Void, DBError>
     func getUser(userId: String) -> AnyPublisher<UserObject, DBError>   // user id를 파라미터를 전송하면 UserObject를 리턴
+    func loadUser() -> AnyPublisher<[UserObject], DBError>              // user key 아래에 있는 정보들을 배열로 저장
 }
 
 class UserDBRepository: UserDBRepositoryType {
@@ -81,6 +82,36 @@ class UserDBRepository: UserDBRepositoryType {
             } else {    // 유저에 대한 정보가 없을 때 value가 없을 때 -> 실패
                 return Fail(error: .emptyValue).eraseToAnyPublisher() // Fail 던지기
             
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    func loadUser() -> AnyPublisher<[UserObject], DBError> {    // Users 가져오기 
+        Future<Any?, DBError> { [weak self] promise in
+            self?.db.child(DBKey.Users).getData { error, snapshot in
+                if let error {
+                    promise(.failure(DBError.error(error)))
+                } else if snapshot?.value is NSNull {
+                    promise(.success(nil))
+                } else {
+                    promise(.success(snapshot?.value))
+                }   // 여기까지 딕셔너리 형태. 밑에서 유저 배열 형태로 변환
+            }
+        }
+        .flatMap { value in
+            if let dic = value as? [String: [String: Any]] { // type check / firebase 를 보고 진행 -> [UserKey: String, 기타 값들: UserObject]
+                return Just(dic) // 맞다면 Just로 딕셔너리 생성
+                    .tryMap { try JSONSerialization.data(withJSONObject: $0) }// trymap으로 오브젝트를 데이터화
+                    .decode(type: [String: UserObject].self, decoder: JSONDecoder()) // decoding
+                    .map { $0.values.map { $0 as UserObject }}  // [String: UserObject] 여기 딕셔너리에서 UserObject의 value만 뽑아옴 + map을 사용해서 $0가 UserObject인지 확인까지!!!!
+                    .mapError { DBError.error($0) } // JSONSerialization 디코딩해서 나오는 에러를 DBError로 변환
+                    .eraseToAnyPublisher()
+            } else if value == nil {
+                // 만약 데이터가 nil이라면 빈 배열 리턴
+                return Just([]).setFailureType(to: DBError.self).eraseToAnyPublisher() // Just의 형식상, 에러가 내부에 존재... 에러 타입을 명시적으로 지정
+            } else {    // 데이터 맞지도 않고 없는 경우
+                return Fail(error: .invalidatedType).eraseToAnyPublisher()    // 에러 타입 추가
             }
         }
         .eraseToAnyPublisher()
