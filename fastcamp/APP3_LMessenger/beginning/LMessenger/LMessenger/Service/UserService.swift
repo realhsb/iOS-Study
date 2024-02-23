@@ -37,6 +37,16 @@ class UserService: UserServiceType {
             .mapError { .error($0) }
             .eraseToAnyPublisher()
     }
+    
+    func loadUsers(id: String) -> AnyPublisher<[User], ServiceError> {
+        dbRepository.loadUser()    // 자기 자신도 포함됨
+            .map { $0        // 필터 사용해서 자기 자신 제외 / [UserObject]로 나옴 map을 2번 써서
+                .map { $0.toModel() }         // 배열이기 때문에 map 2번 사용 / UserObject로 바꿈
+                .filter { $0.id != id }         // 자기 자신이 아닐 때만 하도록
+            }
+            .mapError { .error($0) }    // 에러 바꿔주기
+            .eraseToAnyPublisher()
+    }
 }
 
 class StubUserService: UserServiceType {
@@ -47,6 +57,10 @@ class StubUserService: UserServiceType {
     // DB 주입 받아서 해당 레파지토리에 접근 가능
     
     func getUser(userId: String) -> AnyPublisher<User, ServiceError> {
+        Empty().eraseToAnyPublisher()
+    }
+    
+    func loadUsers(id: String) -> AnyPublisher<[User], ServiceError> {
         Empty().eraseToAnyPublisher()
     }
 }

@@ -56,7 +56,7 @@ struct HomeView: View {
                 }
             }
             .onAppear {
-                viewModel.send(action: .getUser)
+                viewModel.send(action: .load)
             }
         }
     }
