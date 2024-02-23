@@ -19,7 +19,7 @@ class Services: ServiceType {
     
     init() {
         self.authService = AuthenticationService()
-        self.userService = UserService(dpRepository: UserDBRepository())
+        self.userService = UserService(dbRepository: UserDBRepository())
     }
 }
 
