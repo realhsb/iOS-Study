@@ -33,6 +33,10 @@
 		6C86F1182B4ADF2F0093795C /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C86F1172B4ADF2F0093795C /* UserObject.swift */; };
 		6C86F11A2B4ADFC70093795C /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C86F1192B4ADFC70093795C /* DBError.swift */; };
 		6C86F11C2B4AE5EB0093795C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C86F11B2B4AE5EB0093795C /* Constant.swift */; };
+		6C9886A52B88CE1C00E43512 /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9886A42B88CE1C00E43512 /* Phase.swift */; };
+		6C9886A72B88D1E600E43512 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9886A62B88D1E600E43512 /* PlaceholderView.swift */; };
+		6C9886A92B88D20E00E43512 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9886A82B88D20E00E43512 /* LoadingView.swift */; };
+		6C9886AB2B88D2B200E43512 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9886AA2B88D2B200E43512 /* ErrorView.swift */; };
 		723ABD872AFFF1B800C260F1 /* LMessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */; };
 		723ABD8B2AFFF1B900C260F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 723ABD8A2AFFF1B900C260F1 /* Assets.xcassets */; };
 		723ABD8E2AFFF1B900C260F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 723ABD8D2AFFF1B900C260F1 /* Preview Assets.xcassets */; };
@@ -85,6 +89,10 @@
 		6C86F1172B4ADF2F0093795C /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
 		6C86F1192B4ADFC70093795C /* DBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
 		6C86F11B2B4AE5EB0093795C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		6C9886A42B88CE1C00E43512 /* Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
+		6C9886A62B88D1E600E43512 /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
+		6C9886A82B88D20E00E43512 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		6C9886AA2B88D2B200E43512 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		723ABD832AFFF1B800C260F1 /* LMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723ABD862AFFF1B800C260F1 /* LMessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMessengerApp.swift; sourceTree = "<group>"; };
 		723ABD8A2AFFF1B900C260F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,6 +164,10 @@
 			children = (
 				6C76295D2B468092008D43DA /* DIContainer.swift */,
 				6C86F11B2B4AE5EB0093795C /* Constant.swift */,
+				6C9886A42B88CE1C00E43512 /* Phase.swift */,
+				6C9886A62B88D1E600E43512 /* PlaceholderView.swift */,
+				6C9886A82B88D20E00E43512 /* LoadingView.swift */,
+				6C9886AA2B88D2B200E43512 /* ErrorView.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -468,10 +480,12 @@
 				6C7629662B468A3F008D43DA /* AuthenticationViewModel.swift in Sources */,
 				6C7629782B469997008D43DA /* MainTabView.swift in Sources */,
 				6C7629692B468A9D008D43DA /* AuthenticatedView.swift in Sources */,
+				6C9886AB2B88D2B200E43512 /* ErrorView.swift in Sources */,
 				6C7629612B4680D9008D43DA /* Services.swift in Sources */,
 				6C7629702B469227008D43DA /* AppDelegate.swift in Sources */,
 				72E4BEFC2B00B871007A1060 /* Color+Extension.swift in Sources */,
 				6C86F11C2B4AE5EB0093795C /* Constant.swift in Sources */,
+				6C9886A92B88D20E00E43512 /* LoadingView.swift in Sources */,
 				6C5AD1312B49941000BA5688 /* MainTabType.swift in Sources */,
 				6C76297E2B469CD6008D43DA /* LoginButtonStyle.swift in Sources */,
 				723ABD872AFFF1B800C260F1 /* LMessengerApp.swift in Sources */,
@@ -479,11 +493,13 @@
 				6C7629742B4693D3008D43DA /* AuthenticationService.swift in Sources */,
 				6C5AD1362B49953500BA5688 /* HomeView.swift in Sources */,
 				6C5AD12F2B49861000BA5688 /* ServiceError.swift in Sources */,
+				6C9886A72B88D1E600E43512 /* PlaceholderView.swift in Sources */,
 				6C86F1152B4ADDD40093795C /* UserService.swift in Sources */,
 				6C86F1132B4ADD4E0093795C /* UserDBRepository.swift in Sources */,
 				6C76297A2B4699B1008D43DA /* LoginIntroView.swift in Sources */,
 				6C5AD1382B49953E00BA5688 /* ChatListView.swift in Sources */,
 				6C86F1182B4ADF2F0093795C /* UserObject.swift in Sources */,
+				6C9886A52B88CE1C00E43512 /* Phase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
