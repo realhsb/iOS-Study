@@ -16,7 +16,7 @@ protocol UserDBRepositoryType {
     // DB 레이어에서 다룰 수 있는 에러 타입
     func addUser(_ object: UserObject) -> AnyPublisher<Void, DBError>
     func getUser(userId: String) -> AnyPublisher<UserObject, DBError>   // user id를 파라미터를 전송하면 UserObject를 리턴
-    func loadUser() -> AnyPublisher<[UserObject], DBError>              // user key 아래에 있는 정보들을 배열로 저장
+    func loadUsers() -> AnyPublisher<[UserObject], DBError>              // user key 아래에 있는 정보들을 배열로 저장
 }
 
 class UserDBRepository: UserDBRepositoryType {
@@ -83,11 +83,10 @@ class UserDBRepository: UserDBRepositoryType {
                 return Fail(error: .emptyValue).eraseToAnyPublisher() // Fail 던지기
             
             }
-        }
-        .eraseToAnyPublisher()
+        }.eraseToAnyPublisher()
     }
     
-    func loadUser() -> AnyPublisher<[UserObject], DBError> {    // Users 가져오기 
+    func loadUsers() -> AnyPublisher<[UserObject], DBError> {    // Users 가져오기
         Future<Any?, DBError> { [weak self] promise in
             self?.db.child(DBKey.Users).getData { error, snapshot in
                 if let error {
