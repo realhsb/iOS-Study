@@ -12,25 +12,59 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                profileView
-                    .padding(.bottom, 30)
-                searchButton
-                    .padding(.bottom, 24)
-                HStack {
-                    Text("친구")
-                        .font(.system(size: 14))
-                        .foregroundColor(.bkText)
-                    Spacer()
+            contentView
+                .fullScreenCover(item: $viewModel.modalDestination) {
+                    switch $0 {
+                    case .myProfile:
+                        myProfileView()
+                    case let .otherProfile(userId):
+                        otherProfileView()
+                    }
                 }
-                .padding(.horizontal, 30)
-                
-                // 친구 목록 
-                if viewModel.users.isEmpty { // 없을 때
-                    Spacer(minLength: 89)
-                    emptyView
-                } else {
-                    ForEach(viewModel.users, id: \.id) { user in
+        }
+    }
+    
+    @ViewBuilder
+    var contentView: some View {
+        switch viewModel.phase {
+        case .notRequested:
+            PlaceholderView()
+                .onAppear {
+                    viewModel.send(action: .load)
+                }
+                 
+        case .loading:
+            LoadingView()
+        case .success:
+            loadedView
+        case .fail:
+            ErrorView()
+        }
+    }
+    
+    var loadedView: some View {
+        ScrollView {
+            profileView
+                .padding(.bottom, 30)
+            searchButton
+                .padding(.bottom, 24)
+            HStack {
+                Text("친구")
+                    .font(.system(size: 14))
+                    .foregroundColor(.bkText)
+                Spacer()
+            }
+            .padding(.horizontal, 30)
+            
+            // 친구 목록
+            if viewModel.users.isEmpty { // 없을 때
+                Spacer(minLength: 89)
+                emptyView
+            } else {
+                ForEach(viewModel.users, id: \.id) { user in
+                    Button {
+                        viewModel.send(action: .presentOtherProfileView(user.id))
+                    } label: {
                         HStack(spacing: 8) {
                             Image("person")
                                 .resizable()
@@ -40,23 +74,20 @@ struct HomeView: View {
                                 .font(.system(size: 12))
                                 .foregroundColor(.bkText)
                             Spacer()
-                        }
-                        .padding(.horizontal, 30)
+                        }  
                     }
+                    .padding(.horizontal, 30)
                 }
             }
-            .toolbar {
-                Image("bookmark")
-                Image("notifications")
-                Image("person_add")
-                Button {
-                    // TODO:
-                } label: {
-                    Image("settings")
-                }
-            }
-            .onAppear {
-                viewModel.send(action: .getUser)
+        }
+        .toolbar {
+            Image("bookmark")
+            Image("notifications")
+            Image("person_add")
+            Button {
+                // TODO:
+            } label: {
+                Image("settings")
             }
         }
     }
@@ -80,6 +111,10 @@ struct HomeView: View {
                 .clipShape(Circle())
         }
         .padding(.horizontal, 30)
+        .onTapGesture {
+//            viewModel.send(action: .present)  // 직접적인 변경을 지양하므로, 액션을 만들어 진행 
+            viewModel.send(action: .presentMyProfileView)
+        }
     }
     
     var searchButton: some View {
@@ -113,7 +148,7 @@ struct HomeView: View {
             .padding(.bottom, 30)
             
             Button {
-                
+                viewModel.send(action: .requestContacts)
             } label: {
                 Text("친구추가")
                     .font(.system(size: 14))
