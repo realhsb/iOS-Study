@@ -17,6 +17,7 @@ protocol UserDBRepositoryType {
     func addUser(_ object: UserObject) -> AnyPublisher<Void, DBError>
     func getUser(userId: String) -> AnyPublisher<UserObject, DBError>   // user id를 파라미터를 전송하면 UserObject를 리턴
     func loadUsers() -> AnyPublisher<[UserObject], DBError>              // user key 아래에 있는 정보들을 배열로 저장
+    func adduserAfterContact(users: [UserObject]) -> AnyPublisher<Void, DBError>
 }
 
 class UserDBRepository: UserDBRepositoryType {
@@ -114,5 +115,49 @@ class UserDBRepository: UserDBRepositoryType {
             }
         }
         .eraseToAnyPublisher()
+    }
+    
+    func adduserAfterContact(users: [UserObject]) -> AnyPublisher<Void, DBError> {
+        // 유저 정보가 배열로 넘어옴
+        /*
+            Users/                      // 스트림으로 users: [UserObject] 얘를 받아와 데이터화해서 딕셔너리화해야 함
+                Zip의 첫번쨰 스트림은 유저정보를 변환하지 않는 퍼블리셔 / 변환하는 퍼블리셔
+                 user_id: [String: Any]
+                 user_id: [String: Any]
+                 user_id: [String: Any]
+         */
+        
+//        users.publisher // 유저정보가 하나씩 방출됨
+        Publishers.Zip(users.publisher, users.publisher)     // 뒤에 있는 값을 데이터화해서 딕셔너리화까지
+            .compactMap { origin, converted in
+                if let converted = try? JSONEncoder().encode(converted) {   // converted에 넘기기
+                    return (origin, converted)
+                } else {
+                    // 실패하면 아래 스트림에 방출되는 값이 없도록 함
+                    return nil
+                }
+            }
+            .compactMap { origin, converted in   // converted엔 인코딩된 값이 넘어옴
+                if let converted = try? JSONSerialization.jsonObject(with: converted, options: .fragmentsAllowed) {
+                    return (origin, converted)
+                } else {
+                    return nil
+                }
+            }
+        // 변환이 됐으므로 db에 연동
+            .flatMap { origin, converted in
+                Future<Void, Error> { [weak self] promise in
+                    self?.db.child(DBKey.Users).child(origin.id).setValue(converted) { error, _ in
+                        if let error {
+                            promise(.failure(error))
+                        } else {
+                            promise(.success(()))
+                        }
+                    }
+                }
+            }
+            .last()  // 마지막 알려줌,  UI 업데이트
+            .mapError { .error($0) }
+            .eraseToAnyPublisher()
     }
 }

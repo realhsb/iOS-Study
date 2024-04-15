@@ -12,11 +12,15 @@ class HomeViewModel: ObservableObject {
     
     enum Action {
         case load
+        case requestContacts
+        case presentMyProfileView
+        case presentOtherProfileView(String)    // associated 타입
     }
     
     @Published var myUser: User?
     @Published var users: [User] = []
     @Published var phase: Phase = .notRequested // 사용자 이름, 상태메세지
+    @Published var modalDestination: HomeModalDestination?
     
     private var userId: String
     
@@ -59,8 +63,32 @@ class HomeViewModel: ObservableObject {
                     self?.users = users
                     print("phase1 : \(self?.phase)")
                 }.store(in: &subscriptions)
-            print("phase2 : \(phase)")
-//            print(phase)
+            
+        case .requestContacts:
+            container.services.contactService.fetchContacts()
+            // 패치가 되고나면 db에 insert
+                .flatMap { users in
+                    self.container.services.userService.addUserAfterContact(users: users)
+                    
+                }
+                // 유저 정보 불러오기
+                .flatMap { _ in
+                    self.container.services.userService.loadUsers(id: self.userId)
+                }
+                .sink { [weak self] completion in
+                    if case .failure = completion {
+                        self?.phase = .fail
+                    }
+                } receiveValue: { [weak self] users in
+                    self?.phase = .success
+                    self?.users = users
+                }.store(in: &subscriptions)
+            
+        case .presentMyProfileView:
+            modalDestination = .myProfile
+            
+        case let .presentOtherProfileView(userId):
+            modalDestination = .otherProfile(userId)
         }
     }
 }

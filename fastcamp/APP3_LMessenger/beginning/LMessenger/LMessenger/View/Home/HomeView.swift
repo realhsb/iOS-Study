@@ -13,6 +13,14 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             contentView
+                .fullScreenCover(item: $viewModel.modalDestination) {
+                    switch $0 {
+                    case .myProfile:
+                        myProfileView()
+                    case let .otherProfile(userId):
+                        otherProfileView()
+                    }
+                }
         }
     }
     
@@ -24,6 +32,7 @@ struct HomeView: View {
                 .onAppear {
                     viewModel.send(action: .load)
                 }
+                 
         case .loading:
             LoadingView()
         case .success:
@@ -53,15 +62,19 @@ struct HomeView: View {
                 emptyView
             } else {
                 ForEach(viewModel.users, id: \.id) { user in
-                    HStack(spacing: 8) {
-                        Image("person")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .clipShape(Circle())
-                        Text(user.name)
-                            .font(.system(size: 12))
-                            .foregroundColor(.bkText)
-                        Spacer()
+                    Button {
+                        viewModel.send(action: .presentOtherProfileView(user.id))
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image("person")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .clipShape(Circle())
+                            Text(user.name)
+                                .font(.system(size: 12))
+                                .foregroundColor(.bkText)
+                            Spacer()
+                        }  
                     }
                     .padding(.horizontal, 30)
                 }
@@ -77,9 +90,6 @@ struct HomeView: View {
                 Image("settings")
             }
         }
-//        .onAppear {
-//            viewModel.send(action: .load)
-//        }
     }
     
     var profileView: some View {
@@ -101,6 +111,10 @@ struct HomeView: View {
                 .clipShape(Circle())
         }
         .padding(.horizontal, 30)
+        .onTapGesture {
+//            viewModel.send(action: .present)  // 직접적인 변경을 지양하므로, 액션을 만들어 진행 
+            viewModel.send(action: .presentMyProfileView)
+        }
     }
     
     var searchButton: some View {
@@ -134,7 +148,7 @@ struct HomeView: View {
             .padding(.bottom, 30)
             
             Button {
-                
+                viewModel.send(action: .requestContacts)
             } label: {
                 Text("친구추가")
                     .font(.system(size: 14))
