@@ -22,7 +22,7 @@ class HomeViewModel: ObservableObject {
     @Published var phase: Phase = .notRequested // 사용자 이름, 상태메세지
     @Published var modalDestination: HomeModalDestination?
     
-    private var userId: String
+    var userId: String
     
     private var container: DIContainer
     private var subscriptions = Set<AnyCancellable>()
