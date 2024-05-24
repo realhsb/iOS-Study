@@ -5,6 +5,8 @@
 //  Created by Subeen on 4/13/24.
 //
 
+/// 프로필뷰 등장 -> 해당 유저 정보 가져와서 세팅 -> async await로 작업 
+
 import SwiftUI
 
 struct MyProfileView: View {
@@ -45,6 +47,10 @@ struct MyProfileView: View {
                         Image("close")
                     }
                 }
+            }
+            
+            .task { // onAppear가 실행되기 전에 실행 
+                await viewModel.getUser()
             }
         }
     }

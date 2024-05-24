@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor /// 이 클래스에 해당되는 프로퍼티가 Main에서 접근 가능함
 class MyprofileViewModel: ObservableObject {
     
     /// 자신에 대한 유저 정보
@@ -21,6 +22,12 @@ class MyprofileViewModel: ObservableObject {
     init(container: DIContainer, userId: String) {
         self.container = container
         self.userId = userId
+    }
+    
+    func getUser() async {
+        if let user = try? await container.services.userService.getUser(userId: userId) {
+            userInfo = user
+        }
     }
 }
 

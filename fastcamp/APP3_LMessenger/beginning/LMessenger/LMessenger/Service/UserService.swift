@@ -13,6 +13,7 @@ protocol UserServiceType {
     func addUser(_ user: User) -> AnyPublisher<User, ServiceError>
     func addUserAfterContact(users: [User]) -> AnyPublisher<Void, ServiceError>
     func getUser(userId: String) -> AnyPublisher<User, ServiceError>
+    func getUser(userId: String) async throws -> User
     func loadUsers(id: String) -> AnyPublisher<[User], ServiceError>
 }
 
@@ -44,6 +45,11 @@ class UserService: UserServiceType {
             .map { $0.toModel() }    // UserObject를 User로 변환
             .mapError { .error($0) }
             .eraseToAnyPublisher()
+    }
+    
+    func getUser(userId: String) async throws -> User {
+        let userObject = try await dbRepository.getUser(userId: userId)
+        return userObject.toModel()
     }
     
     
@@ -78,6 +84,10 @@ class StubUserService: UserServiceType {
     func getUser(userId: String) -> AnyPublisher<User, ServiceError> {
 //        Empty().eraseToAnyPublisher()
         Just(.stub1).setFailureType(to: ServiceError.self).eraseToAnyPublisher()
+    }
+    
+    func getUser(userId: String) async throws -> User {
+        return .stub1
     }
     
     // 친구 목록 가져오기
