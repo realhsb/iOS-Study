@@ -42,26 +42,21 @@ class HomeViewModel: ObservableObject {
             container.services.userService.getUser(userId: userId)   // 친구 목록까지 잘 불러옴!
                 .handleEvents(receiveOutput: { [weak self] user in
                     self?.myUser = user
-                    print("Hiii")
                 })
                 .handleEvents(receiveOutput: { [weak self] user in // 유저 정보 세팅
                     self?.myUser = user
-                    print("hi")
                 })  // 이 스트림의 사이드 이펙트. 이벤트 중간에 어떤 작업을 하고 싶을 때 사용
                 .flatMap { user in
                     self.container.services.userService.loadUsers(id: user.id)
                 }
                 .sink { [weak self] completion in
                     if case .failure = completion {
-                        print("fail")
+
                         self?.phase = .fail
                     }
                 } receiveValue: { [weak self] users in
-                    print("success")
-                    
                     self?.phase = .success
                     self?.users = users
-                    print("phase1 : \(self?.phase)")
                 }.store(in: &subscriptions)
             
         case .requestContacts:
