@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import PhotosUI
 
 @MainActor /// 이 클래스에 해당되는 프로퍼티가 Main에서 접근 가능함
 class MyprofileViewModel: ObservableObject {
@@ -15,6 +17,14 @@ class MyprofileViewModel: ObservableObject {
     ///
     @Published var userInfo: User?
     @Published var isPresentedDescEditView: Bool = false
+    @Published var imageSelection: PhotosPickerItem? {
+        // 이미지가 선택됐을 때
+        didSet {
+            Task {
+                await updateProfileImage(pickerItem: imageSelection)
+            }
+        }
+    }
     
     private let userId: String
     
@@ -38,6 +48,17 @@ class MyprofileViewModel: ObservableObject {
             userInfo?.description = description
         } catch {
             
+        }
+    }
+    
+    func updateProfileImage(pickerItem: PhotosPickerItem?) async {
+        guard let pickerItem else { return } // 받아온 이미지가 없을 때
+        
+        do {
+            let data = try await container.services.photoPickerService.loadTransferable(from: pickerItem)
+        } catch {
+            // TODO: storage upload
+            // TODO: db update
         }
     }
 }
