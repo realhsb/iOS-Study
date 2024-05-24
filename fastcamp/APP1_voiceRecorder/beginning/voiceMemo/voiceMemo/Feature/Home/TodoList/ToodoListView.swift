@@ -12,6 +12,7 @@ struct TodoListView: View {
 	// todoListModel 뿐만 아니라, TodoView에서도 사용!
 	// todoListViewModel은 todoListView의 하위뷰로 생성된 것이 아님!
 	// -> 독립적인 개체
+	@EnvironmentObject private var homeViewModel: HomeViewModel
 	
 	var body: some View {
 		ZStack {
@@ -55,6 +56,13 @@ struct TodoListView: View {
 			
 			Button("취소", role: .cancel) {}
 		}
+		.onChange(
+			of: todoListViewModel.todos,
+			perform: { todos in
+				// todo 개수가 변할 떄마다, 호출 -> todos.count를 실시간으로 homeView에 넘겨줌
+				homeViewModel.setTodosCount(todos.count)
+			}
+		) // of : 어떤 게 변했을 떄, 변한 값을 바인딩 / 변한값에 따라서 어떻게 동작할지 perform으로 정의
 	}
 }
 	

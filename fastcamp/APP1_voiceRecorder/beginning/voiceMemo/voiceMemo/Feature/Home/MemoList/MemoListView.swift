@@ -8,6 +8,7 @@ import SwiftUI
 struct MemoListView: View {
 	@EnvironmentObject private var pathModel: PathModel
 	@EnvironmentObject private var memoListViewModel: MemoListViewModel
+	@EnvironmentObject private var homeViewModel: HomeViewModel // memos.counts를 homeViewModel로 넘겨주기 위함
 	
   var body: some View {
 		ZStack {
@@ -53,6 +54,13 @@ struct MemoListView: View {
 			
 			Button("취소", role: .cancel) { }
 		}
+		.onChange(
+			of: memoListViewModel.memos,
+			perform: { memos in
+				// todo 개수가 변할 떄마다, 호출 -> todos.count를 실시간으로 homeView에 넘겨줌
+				homeViewModel.setTodosCount(memos.count)
+			}
+		) // of : 어떤 게 변했을 떄, 변한 값을 바인딩 / 변한값에 따라서 어떻게 동작할지 perform으로 정의
 		
   }
 }

@@ -14,31 +14,32 @@ struct OnboardingView: View {
   var body: some View {
       // TODO: - 화면 전환 구현 필요
       NavigationStack(path: $pathModel.paths) {  // pathModel를 가지고 뒤로 빠지거나 왔다갔다 -> .environmentObject 로 선언
-//            OnboardingContentView(onboardingViewModel: onboardingViewModel)
-				SettingView()
+				OnboardingContentView(onboardingViewModel: onboardingViewModel)
 					.environmentObject(memoListViewModel)
-              .navigationDestination(
+                    .navigationDestination(
                 for: PathType.self,         // 구분자 PathType
                 destination: { pathType in  // 타입에 따라 어느 뷰로 갈지
                     switch pathType {
                     case .homeView:
                         HomeView()
                             .navigationBarBackButtonHidden()
+                            .environmentObject(todoListViewModel)
+							.environmentObject(memoListViewModel)	// HomeView내에서 사용할 수 있도록 주입.
                         
                     case .todoView:
                         TodoView()
                             .navigationBarBackButtonHidden()
-														.environmentObject(todoListViewModel)	// todoListViewModel을 보여줌. path 타입에 따라 todoView를 보여줌. 그래서 todoListViewModel 주입해야 함 
+							.environmentObject(todoListViewModel)	// todoListViewModel을 보여줌. path 타입에 따라 todoView를 보여줌. 그래서 todoListViewModel 주입해야 함
                         
                     case let .memoView(isCreateMode, memo):	// 모드가 2개 (생성, 뷰어로 들어가서 생성)
                         MemoView(
-													memoViewModel: isCreateMode
-													? .init(memo: .init(title: "", content: "", date: .now))		// 생성 모드일 경우 -> 메모 비어있음
-													: .init(memo: memo ?? .init(title: "", content: "", date: .now)),	// 뷰어 모드 or 편집 다시
+                            memoViewModel: isCreateMode
+                            ? .init(memo: .init(title: "", content: "", date: .now))		// 생성 모드일 경우 -> 메모 비어있음
+							: .init(memo: memo ?? .init(title: "", content: "", date: .now)),	// 뷰어 모드 or 편집 다시
 													isCreateMode: isCreateMode
 												)
                             .navigationBarBackButtonHidden()
-														.environmentObject(memoListViewModel)
+							.environmentObject(memoListViewModel)
                     }
                 }
               )

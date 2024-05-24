@@ -14,9 +14,9 @@ class TodoViewModel: ObservableObject {
 	
 	init(		// 초기화 값 넣을지말지 잘 선택 
 		title: String = "",
-			 time: Date = Date(),
-			 day: Date = Date(),
-			 isDisplayCalendar: Bool = false
+        time: Date = Date(),
+        day: Date = Date(),
+        isDisplayCalendar: Bool = false
 	) {
 		self.title = title
 		self.time = time
