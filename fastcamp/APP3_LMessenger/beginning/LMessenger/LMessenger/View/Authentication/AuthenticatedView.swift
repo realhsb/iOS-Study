@@ -21,6 +21,7 @@ struct AuthenticatedView: View {
             }
         }
         .onAppear {
+//            authViewModel.send(action: .logout)
             authViewModel.send(action: .checkAuthenticationState)   // 상태가 업데이트됐다면, 그 상태에 따라 뷰를 보여줄 것
         }
     }
