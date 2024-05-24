@@ -17,6 +17,7 @@ protocol UserDBRepositoryType {
     func addUser(_ object: UserObject) -> AnyPublisher<Void, DBError>
     func getUser(userId: String) -> AnyPublisher<UserObject, DBError>   // user id를 파라미터를 전송하면 UserObject를 리턴 // Combine 버전
     func getUser(userId: String) async throws -> UserObject    // async await 버전
+    func updateUser(userId: String, key: String, value: Any) async throws
     func loadUsers() -> AnyPublisher<[UserObject], DBError>              // user key 아래에 있는 정보들을 배열로 저장
     func adduserAfterContact(users: [UserObject]) -> AnyPublisher<Void, DBError>
 }
@@ -99,6 +100,10 @@ class UserDBRepository: UserDBRepositoryType {
         let data = try JSONSerialization.data(withJSONObject: value)            // 딕셔너리 데이터화
         let userObject = try JSONDecoder().decode(UserObject.self, from: data)  // 유저오브젝트에 맞게 디코더
         return userObject
+    }
+    
+    func updateUser(userId: String, key: String, value: Any) async throws {
+        try await self.db.child(DBKey.Users).child(userId).child(key).setValue(value)   /// 해당되는 키의 값을 업데이트 하므로 .child(key) 추가
     }
     
     func loadUsers() -> AnyPublisher<[UserObject], DBError> {    // Users 가져오기

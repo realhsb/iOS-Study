@@ -14,6 +14,7 @@ class MyprofileViewModel: ObservableObject {
     ///  프로필에서 최신 정보를 가져와야 함. 유저 아이디를 받음
     ///
     @Published var userInfo: User?
+    @Published var isPresentedDescEditView: Bool = false
     
     private let userId: String
     
@@ -27,6 +28,16 @@ class MyprofileViewModel: ObservableObject {
     func getUser() async {
         if let user = try? await container.services.userService.getUser(userId: userId) {
             userInfo = user
+        }
+    }
+    
+    func updateDescription(_ description: String) async {
+        do {
+            try await container.services.userService.updateDescription(userId: userId, description: description)
+            /// 업데이트 성공시, userInfo의 description 업데이트
+            userInfo?.description = description
+        } catch {
+            
         }
     }
 }
