@@ -8,6 +8,7 @@
 /// 프로필뷰 등장 -> 해당 유저 정보 가져와서 세팅 -> async await로 작업 
 
 import SwiftUI
+import PhotosUI
 
 struct MyProfileView: View {
     
@@ -56,9 +57,8 @@ struct MyProfileView: View {
     }
     
     var profileView: some View {
-        Button {
-            // TODO:
-        } label: {
+        PhotosPicker(selection: $viewModel.imageSelection, 
+                     matching: .images) {
             Image("person")
                 .resizable()
                 .frame(width: 80, height: 80)
