@@ -47,7 +47,7 @@ class MyprofileViewModel: ObservableObject {
             /// 업데이트 성공시, userInfo의 description 업데이트
             userInfo?.description = description
         } catch {
-            
+            print(error.localizedDescription)
         }
     }
     
@@ -55,10 +55,14 @@ class MyprofileViewModel: ObservableObject {
         guard let pickerItem else { return } // 받아온 이미지가 없을 때
         
         do {
+            // 1. 이미지 데이터화 2. firebase storage 업로드  // 3. db update
             let data = try await container.services.photoPickerService.loadTransferable(from: pickerItem)
+            let url = try await container.services.uploadService.uploadImage(source: .profile(userId: userId), data: data)
+            try await container.services.userService.updateProfileURL(userId: userId, urlString: url.absoluteString)
+            
+            userInfo?.profileURL = url.absoluteString
         } catch {
-            // TODO: storage upload
-            // TODO: db update
+            print(error.localizedDescription)
         }
     }
 }
