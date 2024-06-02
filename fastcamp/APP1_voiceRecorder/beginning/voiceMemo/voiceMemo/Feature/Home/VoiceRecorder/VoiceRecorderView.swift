@@ -7,6 +7,7 @@ import SwiftUI
 
 struct VoiceRecorderView: View {
 	@StateObject private var voiceRecorderViewModel = VoiceRecorderViewModel()
+	@EnvironmentObject private var homeViewModel: HomeViewModel // recorded.counts가 변할 떄마다 homeViewModel로 넘겨줌 
 	
   var body: some View {
 		ZStack {
@@ -47,6 +48,13 @@ struct VoiceRecorderView: View {
 		) {
 			Button("확인", role: .cancel) { }	 // 얼럿 창 닫기
 		}
+		.onChange(
+			of: voiceRecorderViewModel.recordedFiles,
+			perform: { recordedFiles in
+				// todo 개수가 변할 떄마다, 호출 -> todos.count를 실시간으로 homeView에 넘겨줌
+				homeViewModel.setTodosCount(recordedFiles.count)
+			}
+		) // of : 어떤 게 변했을 떄, 변한 값을 바인딩 / 변한값에 따라서 어떻게 동작할지 perform으로 정의
 		
   }
 }

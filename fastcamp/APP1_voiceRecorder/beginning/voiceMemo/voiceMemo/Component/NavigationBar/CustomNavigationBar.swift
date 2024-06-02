@@ -16,7 +16,7 @@ struct CustomNavigationBar: View {
 	
 	init(
 		isDisplayLeftBtn: Bool = true,
-		isDisplayRightBtn: Bool = true,
+		isDisplayRightBtn: Bool = false,
 		leftBtnAction: @escaping () -> Void = {},
 		rightBtnAction: @escaping () -> Void = {},
 		rightBtnType: NavigationBtnType = .edit
@@ -40,6 +40,10 @@ struct CustomNavigationBar: View {
 			}
 			
 			Spacer()
+            
+//            Text("d")
+            
+            Spacer()
 			
 			if isDisplayRightBtn {
 				Button {
