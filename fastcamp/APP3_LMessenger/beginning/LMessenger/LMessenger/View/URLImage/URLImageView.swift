@@ -48,7 +48,7 @@ fileprivate struct URLInnerImageView: View {
             .resizable()
             .aspectRatio(contentMode: .fill)
             .onAppear {
-                if viewModel.loadingOrSuccess {
+                if !viewModel.loadingOrSuccess {
                     viewModel.start()
                 }
             }
