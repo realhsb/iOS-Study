@@ -35,7 +35,7 @@ class ImageCacheService: ImageCacheServiceType {
                 if let image {
                     return Just(image).eraseToAnyPublisher()
                 } else {
-                    return self.imageWithMemoryCache(for: key)  // self 써주기
+                    return self.imageWithDiskCache(for: key)  // self 써주기
                 }
             }
             .eraseToAnyPublisher()
@@ -43,7 +43,7 @@ class ImageCacheService: ImageCacheServiceType {
     
     func imageWithMemoryCache(for key: String) -> AnyPublisher<UIImage?, Never> {
         Future { [weak self] promise in
-            let image = self?.memoryStorage.value(for: key) // 2️⃣ 없으면, 디스크 캐시 확인
+            let image = self?.memoryStorage.value(for: key) // 2️⃣ 없으면, 디스크 캐시 확인 ...
             promise(.success(image))
             
         }.eraseToAnyPublisher()
@@ -62,7 +62,12 @@ class ImageCacheService: ImageCacheServiceType {
         
         .flatMap { image -> AnyPublisher<UIImage?, Never> in    // 타입 명시 AnyPublisher<UIImage?, Never>
             if let image {
-                return Just(image).eraseToAnyPublisher()    // 3️⃣ 디스크에 있으면 리턴
+                return Just(image)                      // 3️⃣ 디스크에 있으면 리턴, 디스크에 가져온 걸 메모리 캐시에 저장
+                    .handleEvents(receiveOutput: { [weak self] image in
+                        guard let image else { return }
+                        self?.store(for: key, image: image, toDisk: false)  // 캐시에 저장
+                    })
+                    .eraseToAnyPublisher()
             } else {
                 return self.remoteImage(for: key)   // 4️⃣ 없을 경우 네트워크 통신
             }
@@ -76,6 +81,10 @@ class ImageCacheService: ImageCacheServiceType {
                 UIImage(data: data)
             }
             .replaceError(with: nil)
+            .handleEvents(receiveOutput: { [weak self] image in
+                guard let image else { return }
+                self?.store(for: urlString, image: image, toDisk: true) // 이미지 받고 캐시랑 디스크 둘 다 저장 ~
+            })
             .eraseToAnyPublisher()
         
         // 이미지 받아온 후, storage에 저장
@@ -83,7 +92,7 @@ class ImageCacheService: ImageCacheServiceType {
     }
     
     func store(for key: String, image: UIImage, toDisk: Bool) {
-        memoryStorage.store(for: key, image: image)
+        memoryStorage.store(for: key, image: image) // 기본적으로 메모리 스토리지에 저장
         
         if toDisk {
             try? diskStorage.store(for: key, image: image)

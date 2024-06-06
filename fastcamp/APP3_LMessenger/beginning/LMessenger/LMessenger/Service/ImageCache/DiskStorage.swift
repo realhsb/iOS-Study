@@ -54,14 +54,14 @@ class DiskStorage: DiskStorageType {
             return nil
         }
         
-        let data = try Data(contentsOf: fileURL)
+        let data = try Data(contentsOf: fileURL)    // url을 통해 data로 가져오기 -> 큰 일...! 글로벌 큐(백그라운드)에서 작업하도록
         return UIImage(data: data)
     }
     
     func store(for key: String, image: UIImage) throws {    // image는 네트워킹 후 받은 이미지 -> 캐시에 저장 
         let data = image.jpegData(compressionQuality: 0.5) // 이미지 압축
         let fileURL = cacheFileURL(for: key)
-        try data?.write(to: fileURL)
+        try data?.write(to: fileURL)        //  폴더에 쓰기 -> 글로벌 큐
         
     }
 }
