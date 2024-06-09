@@ -234,6 +234,27 @@
 			path = ChatList;
 			sourceTree = "<group>";
 		};
+		6C5BDC722C159AD000FFB3A4 /* MyProfile */ = {
+			isa = PBXGroup;
+			children = (
+				6CAC226B2BCAA366002FFFDD /* MyProfileView.swift */,
+				6C4F7BA82BD818F900ED01DA /* MyProfileMenuType.swift */,
+				6C4F7BA62BD80FC400ED01DA /* MyprofileViewModel.swift */,
+				6C76514A2C0074CE00196536 /* MyProfileDescEditView.swift */,
+			);
+			path = MyProfile;
+			sourceTree = "<group>";
+		};
+		6C5BDC732C159ADE00FFB3A4 /* OtherProfile */ = {
+			isa = PBXGroup;
+			children = (
+				6CAC226D2BCAA36C002FFFDD /* OtherProfileView.swift */,
+				6C5BDC742C159AF600FFB3A4 /* OtherProfileViewModel.swift */,
+				6C5BDC762C159D3300FFB3A4 /* OtherProfileMenuType.swift */,
+			);
+			path = OtherProfile;
+			sourceTree = "<group>";
+		};
 		6C76295C2B468085008D43DA /* General */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,11 +353,8 @@
 		6CAC22662BCAA336002FFFDD /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				6CAC226B2BCAA366002FFFDD /* MyProfileView.swift */,
-				6C4F7BA82BD818F900ED01DA /* MyProfileMenuType.swift */,
-				6CAC226D2BCAA36C002FFFDD /* OtherProfileView.swift */,
-				6C4F7BA62BD80FC400ED01DA /* MyprofileViewModel.swift */,
-				6C76514A2C0074CE00196536 /* MyProfileDescEditView.swift */,
+				6C5BDC722C159AD000FFB3A4 /* MyProfile */,
+				6C5BDC732C159ADE00FFB3A4 /* OtherProfile */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
