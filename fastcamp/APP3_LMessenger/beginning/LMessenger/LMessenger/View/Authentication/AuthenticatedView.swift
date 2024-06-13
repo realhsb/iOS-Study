@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AuthenticatedView: View {
     @StateObject var authViewModel: AuthenticationViewModel // 뷰모델 초기화 시점 -> 이 뷰를 만들 때. 왜? 뷰모델에서 컨테이너를 초기화할 때 주입해줄 예정.
+    @StateObject var navigationRouter: NavigationRouter
+    
     var body: some View {
         VStack {
             switch authViewModel.authenticationState {
@@ -18,6 +20,7 @@ struct AuthenticatedView: View {
             case .authenticated:
                 MainTabView()
                     .environmentObject(authViewModel)
+                    .environmentObject(navigationRouter)
             }
         }
         .onAppear {
@@ -29,5 +32,5 @@ struct AuthenticatedView: View {
 }
 
 #Preview {
-    AuthenticatedView(authViewModel: .init(container: .init(services: StubService())))   // 앱 생성시 주입. 여기서는 프리뷰이므로 테스트용 서비스 주입 
+    AuthenticatedView(authViewModel: .init(container: .init(services: StubService())), navigationRouter: .init())   // 앱 생성시 주입. 여기서는 프리뷰이므로 테스트용 서비스 주입 
 }
