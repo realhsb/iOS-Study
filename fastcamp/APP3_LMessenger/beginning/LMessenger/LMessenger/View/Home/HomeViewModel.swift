@@ -15,6 +15,7 @@ class HomeViewModel: ObservableObject {
         case requestContacts
         case presentMyProfileView
         case presentOtherProfileView(String)    // associated 타입
+        case goToChat(User)
     }
     
     @Published var myUser: User?
@@ -86,6 +87,23 @@ class HomeViewModel: ObservableObject {
             
         case let .presentOtherProfileView(userId):
             modalDestination = .otherProfile(userId)
+            
+        case let .goToChat(otherUser):
+            // 채팅방 들어가기
+            // 1. 채팅방 유무 확인
+            // 2. 없으면 생성, 있으면 기존 채팅방 들어가기
+            // ChatRooms/myUserId 여기에 내 채팅방 목록 저장 ,,,
+            // ChatRooms/myUserId/otherUderId 나와 내 친구가 채팅방이 있는지 확인
+            
+            /// 채팅방 정보 받아오기
+            container.services.chatRoomService.createChatRoomIfNeeded(myUserId: userId, otherUserId: otherUser.id, otherUserName: otherUser.name)
+                .sink { completion in
+                    
+                } receiveValue: { [weak self] chatRoom in
+                    // 채팅뷰로 navigation
+                    self?.navigationRouter.push(to: .chat)
+                }.store(in: &subscriptions)
+
         }
     }
 }

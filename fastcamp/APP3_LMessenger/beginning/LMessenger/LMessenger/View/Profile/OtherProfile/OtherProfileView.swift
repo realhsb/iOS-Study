@@ -11,7 +11,7 @@ struct OtherProfileView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: OtherProfileViewModel
     
-//    var goToChat: (User) -> Void
+    var goToChat: (User) -> Void // 대화 버튼을 눌렀을시, 처리할 클로저.
     
     var body: some View {
         NavigationStack {
@@ -56,8 +56,11 @@ struct OtherProfileView: View {
     var menuView: some View {
         HStack(alignment: .top, spacing: 50) {
             ForEach(OtherProfileMenuType.allCases, id: \.self) { menu in
-                Button {
-
+                Button { // 대화 버튼 눌렀을 시
+                    if menu == .chat, let userInfo = viewModel.userInfo { // viewModel.userInfo가 옵셔널이므로, 옵셔널 제거후 전달
+                        dismiss()   // 프로필창이 닫히고, 채팅방으로 이동 
+                        goToChat(userInfo)
+                    }
                 } label: {
                     VStack(alignment: .center) {
                         Image(menu.imageName)
@@ -75,6 +78,7 @@ struct OtherProfileView: View {
 
 struct OtherProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        OtherProfileView(viewModel: .init(container: DIContainer(services: StubService()), userId: "user2_id"))
+        OtherProfileView(viewModel: .init(container: DIContainer(services: StubService()), userId: "user2_id")) { _ in
+        }
     }
 }
