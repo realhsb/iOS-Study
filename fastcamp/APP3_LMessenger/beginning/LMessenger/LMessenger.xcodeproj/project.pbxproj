@@ -26,8 +26,13 @@
 		6C5AD13A2B4AB14500BA5688 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AD1392B4AB14500BA5688 /* HomeViewModel.swift */; };
 		6C5BDC752C159AF600FFB3A4 /* OtherProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BDC742C159AF600FFB3A4 /* OtherProfileViewModel.swift */; };
 		6C5BDC772C159D3300FFB3A4 /* OtherProfileMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BDC762C159D3300FFB3A4 /* OtherProfileMenuType.swift */; };
+		6C5BDC792C159F8C00FFB3A4 /* ChatRoomDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BDC782C159F8C00FFB3A4 /* ChatRoomDBRepository.swift */; };
+		6C5BDC7B2C159FD800FFB3A4 /* ChatRoomObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BDC7A2C159FD800FFB3A4 /* ChatRoomObject.swift */; };
+		6C5BDC7D2C15B5FB00FFB3A4 /* ChatRoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BDC7C2C15B5FB00FFB3A4 /* ChatRoomService.swift */; };
+		6C5BDC7F2C15B6B100FFB3A4 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BDC7E2C15B6B100FFB3A4 /* ChatRoom.swift */; };
 		6C5BDC822C15C2FF00FFB3A4 /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BDC812C15C2FF00FFB3A4 /* NavigationDestination.swift */; };
 		6C5BDC842C15C34400FFB3A4 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BDC832C15C34400FFB3A4 /* NavigationRouter.swift */; };
+		6C5BDC8C2C15C65A00FFB3A4 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BDC8B2C15C65A00FFB3A4 /* ChatView.swift */; };
 		6C76295B2B467E86008D43DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C76295A2B467E86008D43DA /* LaunchScreen.storyboard */; };
 		6C76295E2B468092008D43DA /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76295D2B468092008D43DA /* DIContainer.swift */; };
 		6C7629612B4680D9008D43DA /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7629602B4680D9008D43DA /* Services.swift */; };
@@ -105,8 +110,13 @@
 		6C5AD1392B4AB14500BA5688 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6C5BDC742C159AF600FFB3A4 /* OtherProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewModel.swift; sourceTree = "<group>"; };
 		6C5BDC762C159D3300FFB3A4 /* OtherProfileMenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileMenuType.swift; sourceTree = "<group>"; };
+		6C5BDC782C159F8C00FFB3A4 /* ChatRoomDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomDBRepository.swift; sourceTree = "<group>"; };
+		6C5BDC7A2C159FD800FFB3A4 /* ChatRoomObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomObject.swift; sourceTree = "<group>"; };
+		6C5BDC7C2C15B5FB00FFB3A4 /* ChatRoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomService.swift; sourceTree = "<group>"; };
+		6C5BDC7E2C15B6B100FFB3A4 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		6C5BDC812C15C2FF00FFB3A4 /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
 		6C5BDC832C15C34400FFB3A4 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
+		6C5BDC8B2C15C65A00FFB3A4 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		6C7629592B467E2B008D43DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6C76295A2B467E86008D43DA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C76295D2B468092008D43DA /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
@@ -220,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				6C5AD12C2B4985C300BA5688 /* User.swift */,
+				6C5BDC7E2C15B6B100FFB3A4 /* ChatRoom.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +283,14 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		6C5BDC852C15C62A00FFB3A4 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BDC8B2C15C65A00FFB3A4 /* ChatView.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		6C76295C2B468085008D43DA /* General */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +316,7 @@
 				6C5AD12E2B49861000BA5688 /* ServiceError.swift */,
 				6C86F1142B4ADDD40093795C /* UserService.swift */,
 				6CF2083E2BC959240036A824 /* ContactService.swift */,
+				6C5BDC7C2C15B5FB00FFB3A4 /* ChatRoomService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -304,6 +324,8 @@
 		6C7629622B468159008D43DA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6C5BDC882C15C63900FFB3A4 /* Search */,
+				6C5BDC852C15C62A00FFB3A4 /* Chat */,
 				6C1700972C121BF6005CC81E /* URLImage */,
 				6C7629672B468A4B008D43DA /* Authentication */,
 				6C7629752B469659008D43DA /* Login */,
@@ -356,6 +378,7 @@
 				6C86F1162B4ADF270093795C /* DTO */,
 				6C86F1122B4ADD4E0093795C /* UserDBRepository.swift */,
 				6C86F1192B4ADFC70093795C /* DBError.swift */,
+				6C5BDC782C159F8C00FFB3A4 /* ChatRoomDBRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -364,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				6C86F1172B4ADF2F0093795C /* UserObject.swift */,
+				6C5BDC7A2C159FD800FFB3A4 /* ChatRoomObject.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -637,6 +661,7 @@
 				6CAC226E2BCAA36C002FFFDD /* OtherProfileView.swift in Sources */,
 				6C5AD13A2B4AB14500BA5688 /* HomeViewModel.swift in Sources */,
 				6C86F11A2B4ADFC70093795C /* DBError.swift in Sources */,
+				6C5BDC8C2C15C65A00FFB3A4 /* ChatView.swift in Sources */,
 				6C0FAEF82C0096D400310BA4 /* PhotoImage.swift in Sources */,
 				6C5BDC752C159AF600FFB3A4 /* OtherProfileViewModel.swift in Sources */,
 				6CB1296A2C0F19EC005FFA8C /* MemoryStorage.swift in Sources */,
@@ -645,6 +670,7 @@
 				6CB1296C2C0F1AEF005FFA8C /* DiskStorage.swift in Sources */,
 				6C7629782B469997008D43DA /* MainTabView.swift in Sources */,
 				6C7629692B468A9D008D43DA /* AuthenticatedView.swift in Sources */,
+				6C5BDC7F2C15B6B100FFB3A4 /* ChatRoom.swift in Sources */,
 				6C9886AB2B88D2B200E43512 /* ErrorView.swift in Sources */,
 				6C7629612B4680D9008D43DA /* Services.swift in Sources */,
 				6C1700992C121C17005CC81E /* URLImageViewModel.swift in Sources */,
@@ -657,6 +683,7 @@
 				6C76297E2B469CD6008D43DA /* LoginButtonStyle.swift in Sources */,
 				723ABD872AFFF1B800C260F1 /* LMessengerApp.swift in Sources */,
 				6C76297C2B469C1F008D43DA /* LoginView.swift in Sources */,
+				6C5BDC792C159F8C00FFB3A4 /* ChatRoomDBRepository.swift in Sources */,
 				6C7629742B4693D3008D43DA /* AuthenticationService.swift in Sources */,
 				6C5AD1362B49953500BA5688 /* HomeView.swift in Sources */,
 				6C0FAF022C00A03800310BA4 /* UploadService.swift in Sources */,
@@ -674,8 +701,10 @@
 				6CB1296F2C0F319B005FFA8C /* SHA256.swift in Sources */,
 				6CB129672C0F194F005FFA8C /* ImageCacheService.swift in Sources */,
 				6C0FAEF52C00955A00310BA4 /* PhotoPickerService.swift in Sources */,
+				6C5BDC7D2C15B5FB00FFB3A4 /* ChatRoomService.swift in Sources */,
 				6C86F1132B4ADD4E0093795C /* UserDBRepository.swift in Sources */,
 				6C76297A2B4699B1008D43DA /* LoginIntroView.swift in Sources */,
+				6C5BDC7B2C159FD800FFB3A4 /* ChatRoomObject.swift in Sources */,
 				6CB65FD72C0C8C8D0058A714 /* UploadSourceType.swift in Sources */,
 				6CAC22652BCAA2A6002FFFDD /* HomeModalDestination.swift in Sources */,
 				6CF2083F2BC959240036A824 /* ContactService.swift in Sources */,
