@@ -27,12 +27,7 @@ struct HomeView: View {
                     }
                 }
                 .navigationDestination(for: NavigationDestination.self) {
-                    switch $0 {
-                    case .chat:
-                        ChatView()
-                    case .search:
-                        SearchView()
-                    }
+                    NavigationRoutingView(destination: $0) // 라우팅 뷰에서 분기처리 하기 
                 }
         }
     }
