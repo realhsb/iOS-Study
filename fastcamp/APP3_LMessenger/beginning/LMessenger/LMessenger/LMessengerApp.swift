@@ -12,7 +12,7 @@ struct LMessengerApp: App {
     @StateObject var container: DIContainer = .init(services: Services())   // 외부에서 주입
     var body: some Scene {
         WindowGroup {
-            AuthenticatedView(authViewModel: .init(container: container))   // init할 때 뷰모델을 생성하고 있으므로, 컨테이너도 주입
+            AuthenticatedView(authViewModel: .init(container: container), navigationRouter: .init())   // init할 때 뷰모델을 생성하고 있으므로, 컨테이너도 주입
                 .environmentObject(container)
         }
     }
