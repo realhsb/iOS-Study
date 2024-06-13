@@ -288,7 +288,6 @@
 			children = (
 				6C5BDC812C15C2FF00FFB3A4 /* NavigationDestination.swift */,
 				6C5BDC832C15C34400FFB3A4 /* NavigationRouter.swift */,
-				6C8D047F2C1ADA0B003985FC /* NavigationRoutingView.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -411,6 +410,7 @@
 		6C8D047C2C1AD935003985FC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6C8D047F2C1ADA0B003985FC /* NavigationRoutingView.swift */,
 				6C9886AA2B88D2B200E43512 /* ErrorView.swift */,
 				6C9886A82B88D20E00E43512 /* LoadingView.swift */,
 				6C9886A62B88D1E600E43512 /* PlaceholderView.swift */,
