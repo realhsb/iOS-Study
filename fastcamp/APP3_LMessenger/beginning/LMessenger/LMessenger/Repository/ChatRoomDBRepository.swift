@@ -12,6 +12,7 @@ import FirebaseDatabase
 protocol ChatRoomDBRepositoryType {
     func getChatRoom(myUserId: String, otherUserId: String) -> AnyPublisher<ChatRoomObject?, DBError>      /// 채팅방 존재 확인
     func addChatRoom(_ object: ChatRoomObject, myUserId: String) -> AnyPublisher<Void, DBError>
+    func loadChatRooms(myUserId: String) -> AnyPublisher<[ChatRoomObject], DBError>
 }
 
 class ChatRoomDBRepository: ChatRoomDBRepositoryType {
@@ -61,5 +62,35 @@ class ChatRoomDBRepository: ChatRoomDBRepositoryType {
             }
             .mapError { DBError.error($0) }
             .eraseToAnyPublisher()
+    }
+    
+    // otherUserId(키) : [String: Any]
+    func loadChatRooms(myUserId: String) -> AnyPublisher<[ChatRoomObject], DBError> {
+        Future<Any?, DBError> { [weak self] promise in
+            self?.db.child(DBKey.ChatRooms).child(myUserId).getData { error, snapshot in    // ChatRooms/myYserId
+                if let error {
+                    promise(.failure(DBError.error(error)))
+                } else if snapshot?.value is NSNull {
+                    promise(.success(nil))
+                } else {
+                    promise(.success(snapshot?.value))
+                }
+            }
+        }
+        .flatMap { value in
+            if let dic = value as? [String: [String: Any]] { // 타입 캐스팅
+                return Just(dic)
+                    .tryMap { try JSONSerialization.data(withJSONObject: $0) }  // 데이터화
+                    .decode(type: [String: ChatRoomObject].self, decoder: JSONDecoder()) // 디코딩
+                    .map { $0.values.map { $0 as ChatRoomObject } } // ChatRoomObject 안에 있는 value 뽑아와서 array로 만들기 
+                    .mapError { DBError.error($0) }
+                    .eraseToAnyPublisher()
+            } else if value == nil {
+                return Just([]).setFailureType(to: DBError.self).eraseToAnyPublisher()
+            } else {
+                return Fail(error: .invalidatedType).eraseToAnyPublisher()
+            }
+        }
+        .eraseToAnyPublisher()
     }
 }
