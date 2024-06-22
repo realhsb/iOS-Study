@@ -8,6 +8,6 @@
 import Foundation
 
 enum NavigationDestination: Hashable {
-    case chat
+    case chat(ChatRoomId: String, myUserId: String, otherUserId: String) //associated 값
     case search
 }
