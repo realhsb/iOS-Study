@@ -16,7 +16,7 @@ class NavigationRouter: ObservableObject {
     }
     
     func pop() {
-        destinations.popLast()
+        _ = destinations.popLast()
     }
     
     func popToRootView() {
