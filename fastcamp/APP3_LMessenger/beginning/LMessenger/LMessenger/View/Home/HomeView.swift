@@ -27,12 +27,7 @@ struct HomeView: View {
                     }
                 }
                 .navigationDestination(for: NavigationDestination.self) {
-                    switch $0 {
-                    case .chat:
-                        ChatView()
-                    case .search:
-                        SearchView()
-                    }
+                    NavigationRoutingView(destination: $0) // 라우팅 뷰에서 분기처리 하기 
                 }
         }
     }
@@ -59,8 +54,11 @@ struct HomeView: View {
         ScrollView {
             profileView
                 .padding(.bottom, 30)
-            searchButton
-                .padding(.bottom, 24)
+            NavigationLink(value: NavigationDestination.search) {
+                SearchButton()
+            }
+            .padding(.bottom, 24)
+            
             HStack {
                 Text("친구")
                     .font(.system(size: 14))
@@ -127,27 +125,6 @@ struct HomeView: View {
         .onTapGesture {
 //            viewModel.send(action: .present)  // 직접적인 변경을 지양하므로, 액션을 만들어 진행 
             viewModel.send(action: .presentMyProfileView)
-        }
-    }
-    
-    var searchButton: some View {
-        NavigationLink(value: NavigationDestination.search) {
-            ZStack {
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(height: 36)
-                    .background(Color.greyCool)
-                    .cornerRadius(5)
-                
-                HStack {
-                    Text("검색")
-                        .font(.system(size: 12))
-                        .foregroundColor(.greyLightVer2)
-                    Spacer()
-                }
-                .padding(.leading, 22)
-            }
-            .padding(.horizontal, 30)
         }
     }
     
