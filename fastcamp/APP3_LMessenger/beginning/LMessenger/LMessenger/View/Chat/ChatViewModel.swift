@@ -17,6 +17,7 @@ class ChatViewModel: ObservableObject {
     @Published var chatDataList: [ChatData] = []
     @Published var myUser: User?
     @Published var otherUser: User?
+    @Published var message: String = ""
     
     private let chatRoomId: String
     private let myUserId: String
