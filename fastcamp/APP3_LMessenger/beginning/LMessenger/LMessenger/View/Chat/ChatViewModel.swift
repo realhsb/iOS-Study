@@ -32,6 +32,17 @@ class ChatViewModel: ObservableObject {
         self.otherUserId = otherUserId
     }
     
+    func updateChatDataList(_ chat: Chat) {
+        let key = chat.date.toChatDataKey   // extension으로 date를 string 화
+        
+        if let index = chatDataList.firstIndex(where: { $0.dateStr == key }) {
+            chatDataList[index].chats.append(chat)
+        } else {
+            let newChatData: ChatData = .init(dateStr: key, chats: [chat])
+            chatDataList.append(newChatData)
+        }
+    }
+    
     func send(action: Action) {
         
     }
