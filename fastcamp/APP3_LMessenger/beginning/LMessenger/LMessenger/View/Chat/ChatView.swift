@@ -81,6 +81,9 @@ struct ChatView: View {
             }
             .padding(.horizontal, 27)
         }
+        .onAppear {
+            viewModel.send(action: .load)
+        }
     }
     
     // 채팅 목록

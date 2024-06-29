@@ -11,7 +11,7 @@ import Combine
 class ChatViewModel: ObservableObject {
     
     enum Action {
-        
+        case load
     }
     
     @Published var chatDataList: [ChatData] = []
@@ -55,7 +55,18 @@ class ChatViewModel: ObservableObject {
     }
     
     func send(action: Action) {
-        
+        switch action {
+        case .load: // 친구랑 내 정보 추가
+            // Zip ? 둘 중에 하나라도 정보가 없으면 어떠한 에러 처리를 해줄 수도 있기 때문.
+            Publishers.Zip(container.services.userService.getUser(userId: myUserId),
+                           container.services.userService.getUser(userId: otherUserId))
+            .sink { completion in
+                
+            } receiveValue: { [weak self] myUser, otherUser in
+                self?.myUser = myUser
+                self?.otherUser = otherUser
+            }.store(in: &subscription)
+        }
     }
 }
 
