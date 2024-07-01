@@ -12,6 +12,7 @@ class ChatViewModel: ObservableObject {
     
     enum Action {
         case load
+        case addChat(String)
     }
     
     @Published var chatDataList: [ChatData] = []
@@ -66,6 +67,17 @@ class ChatViewModel: ObservableObject {
                 self?.myUser = myUser
                 self?.otherUser = otherUser
             }.store(in: &subscription)
+            
+        case let .addChat(message):
+            let chat: Chat = .init(chatId: UUID().uuidString, userId: myUserId, message: message, date: Date())
+            
+            container.services.chatService.addChat(chat, to: chatRoomId)
+                .sink { completion in
+                    
+                } receiveValue: { [weak self] _ in
+                    self?.message = ""
+                }.store(in: &subscription)
+
         }
     }
 }

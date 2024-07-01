@@ -74,10 +74,14 @@ struct ChatView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                 
                 Button {
-                    
+                    viewModel.send(action: .addChat(viewModel.message))
+                    // 보내졌으니
+                    isFocused = false
                 } label: {
                     Image(.send)
                 }
+                // 메시지가 정상적으로 보내지고, 입력창이 비워지면 버튼 비활성화 
+                .disabled(viewModel.message.isEmpty)
             }
             .padding(.horizontal, 27)
         }
