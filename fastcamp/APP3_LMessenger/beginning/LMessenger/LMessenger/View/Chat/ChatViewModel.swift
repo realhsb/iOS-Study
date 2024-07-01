@@ -37,6 +37,16 @@ class ChatViewModel: ObservableObject {
 //        updateChatDataList(.init(chatId: "chat1_id", userId: "user1_id", message: "Hello", date: Date()))
 //        updateChatDataList(.init(chatId: "chat2_id", userId: "user2_id", message: "World", date: Date()))
 //        updateChatDataList(.init(chatId: "chat3_id", userId: "user1_id", message: "!!", date: Date()))
+        
+        bind()
+    }
+    
+    func bind() {
+        container.services.chatService.observeChat(chatRoomId: chatRoomId)
+            .sink { [weak self] chat in
+                guard let chat else { return }
+                self?.updateChatDataList(chat)
+            }.store(in: &subscription)
     }
     
     func updateChatDataList(_ chat: Chat) {
