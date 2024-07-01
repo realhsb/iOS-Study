@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ChatView: View {
     
@@ -51,10 +52,9 @@ struct ChatView: View {
                 } label: {
                     Image(.otherAdd)
                 }
-                
-                Button {
-                    
-                } label: {
+                PhotosPicker(selection: $viewModel.imageSeleection,
+                             matching: .images
+                ) {
                     Image(.imageAdd)
                 }
                 

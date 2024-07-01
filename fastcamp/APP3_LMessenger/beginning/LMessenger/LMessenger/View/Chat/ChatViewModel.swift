@@ -5,20 +5,27 @@
 //  Created by Subeen on 6/22/24.
 //
 
-import Foundation
 import Combine
+import SwiftUI
+import PhotosUI
 
 class ChatViewModel: ObservableObject {
     
     enum Action {
         case load
         case addChat(String)
+        case uploadImage(PhotosPickerItem?)
     }
     
     @Published var chatDataList: [ChatData] = []
     @Published var myUser: User?
     @Published var otherUser: User?
     @Published var message: String = ""
+    @Published var imageSeleection: PhotosPickerItem? {
+        didSet {    // 이미지가 set 됐을 때,
+            send(action: .uploadImage(imageSeleection))
+        }
+    }
     
     private let chatRoomId: String
     private let myUserId: String
@@ -87,7 +94,17 @@ class ChatViewModel: ObservableObject {
                 } receiveValue: { [weak self] _ in
                     self?.message = ""
                 }.store(in: &subscription)
-
+            
+        case let .uploadImage(pickerItem):
+            /*
+             1. data 화
+             2. uploadService -> storage에 업로드
+             3. chat에 추가 add
+             */
+            
+            
+            
+            return
         }
     }
 }
