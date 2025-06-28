@@ -52,5 +52,99 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "983D895C-4617-442B-8918-F0C8D40C17B3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LMessenger/Service/ChatRoomService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "createChatRoomIfNeeded(myUserId:otherUserId:otherUserName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "929542E3-BDB7-49F6-8180-CC31175BCB1A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LMessenger/Service/ChatRoomService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "createChatRoomIfNeeded(myUserId:otherUserId:otherUserName:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "929542E3-BDB7-49F6-8180-CC31175BCB1A - bc1dd79cbf4d19a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;LMessenger.ChatRoomObject&gt;) -&gt; Combine.AnyPublisher&lt;LMessenger.ChatRoom, LMessenger.ServiceError&gt; in LMessenger.ChatRoomService.createChatRoomIfNeeded(myUserId: Swift.String, otherUserId: Swift.String, otherUserName: Swift.String) -&gt; Combine.AnyPublisher&lt;LMessenger.ChatRoom, LMessenger.ServiceError&gt;"
+                  moduleName = "LMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/soop/git/iOS-Study/fastcamp/APP3_LMessenger/beginning/LMessenger/LMessenger/Service/ChatRoomService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "500">
+               </Location>
+               <Location
+                  uuid = "929542E3-BDB7-49F6-8180-CC31175BCB1A - bc1dd79cbf4d19a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;LMessenger.ChatRoomObject&gt;) -&gt; Combine.AnyPublisher&lt;LMessenger.ChatRoom, LMessenger.ServiceError&gt; in LMessenger.ChatRoomService.createChatRoomIfNeeded(myUserId: Swift.String, otherUserId: Swift.String, otherUserName: Swift.String) -&gt; Combine.AnyPublisher&lt;LMessenger.ChatRoom, LMessenger.ServiceError&gt;"
+                  moduleName = "LMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/soop/git/iOS-Study/fastcamp/APP3_LMessenger/beginning/LMessenger/LMessenger/Service/ChatRoomService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "880">
+               </Location>
+               <Location
+                  uuid = "929542E3-BDB7-49F6-8180-CC31175BCB1A - bc1dd79cbf4d19a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;LMessenger.ChatRoomObject&gt;) -&gt; Combine.AnyPublisher&lt;LMessenger.ChatRoom, LMessenger.ServiceError&gt; in LMessenger.ChatRoomService.createChatRoomIfNeeded(myUserId: Swift.String, otherUserId: Swift.String, otherUserName: Swift.String) -&gt; Combine.AnyPublisher&lt;LMessenger.ChatRoom, LMessenger.ServiceError&gt;"
+                  moduleName = "LMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/soop/git/iOS-Study/fastcamp/APP3_LMessenger/beginning/LMessenger/LMessenger/Service/ChatRoomService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "516">
+               </Location>
+               <Location
+                  uuid = "929542E3-BDB7-49F6-8180-CC31175BCB1A - bc1dd79cbf4d19a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;LMessenger.ChatRoomObject&gt;) -&gt; Combine.AnyPublisher&lt;LMessenger.ChatRoom, LMessenger.ServiceError&gt; in LMessenger.ChatRoomService.createChatRoomIfNeeded(myUserId: Swift.String, otherUserId: Swift.String, otherUserName: Swift.String) -&gt; Combine.AnyPublisher&lt;LMessenger.ChatRoom, LMessenger.ServiceError&gt;"
+                  moduleName = "LMessenger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/soop/git/iOS-Study/fastcamp/APP3_LMessenger/beginning/LMessenger/LMessenger/Service/ChatRoomService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "1068">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

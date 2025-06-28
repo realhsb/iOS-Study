@@ -100,8 +100,12 @@ class HomeViewModel: ObservableObject {
                 .sink { completion in
                     
                 } receiveValue: { [weak self] chatRoom in
+                    guard let `self` = self else { return } // 옵셔널 제거
                     // 채팅뷰로 navigation
-                    self?.navigationRouter.push(to: .chat)
+                    self.navigationRouter.push(to: .chat(ChatRoomId: chatRoom.chatRoomId,
+                                                          myUserId: self.userId,
+                                                          otherUserId: otherUser.id))
+//                    print(self.navigationRouter.destinations)
                 }.store(in: &subscriptions)
 
         }
