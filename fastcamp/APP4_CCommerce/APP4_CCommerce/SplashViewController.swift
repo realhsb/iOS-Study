@@ -21,5 +21,6 @@ class SplashViewController: UIViewController {
         super.viewDidAppear(animated)   // 상속 받았기 때문에 super 붙이기
         
         lottieAnimationView.play()
+        UIImageView().image = CPImage.close
     }
 }
