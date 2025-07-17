@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class HomeViewController: UIViewController {
   
@@ -19,14 +20,15 @@ class HomeViewController: UIViewController {
   
   private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
   private var compositionalLayout: UICollectionViewCompositionalLayout = setCompositionalLayout()
+  private var viewModel: HomeViewModel = HomeViewModel()
+  private var cancellables: Set<AnyCancellable> = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    loadData()
-    
+    bindingViewModel()
+    viewModel.loadData()
     setDataSource()
-    
     collectionView.collectionViewLayout = compositionalLayout
   }
   
@@ -47,33 +49,24 @@ class HomeViewController: UIViewController {
     }
   }
   
-  private func loadData() {
-    Task {
-      do {
-        let response = try await NetworkService.shared.getHomeData() // AsyncThrough error 반환
-        let bannerViewModels = response.banners.map {
-          HomeBannerCollectionViewCellViewModel(bannerImageUrl: $0.imageUrl)
-        }
-        let horizontalProductViewModels = response.horizontalProducts.map {
-          HomeProductCollectionViewCellViewModel(imageUrlString: $0.imageUrl,
-                                                 title: $0.title,
-                                                 reasonDiscountString: $0.discount,
-                                                 originalPrice: "\($0.originalPrice)",
-                                                 discountPrice: "\($0.discountPrice)")
-        }
-        let verticalProductViewModels = response.verticalProducts.map {
-          HomeProductCollectionViewCellViewModel(imageUrlString: $0.imageUrl,
-                                                 title: $0.title,
-                                                 reasonDiscountString: $0.discount,
-                                                 originalPrice: "\($0.originalPrice)",
-                                                 discountPrice: "\($0.discountPrice)")
-        }
-        applySnapshot(bannerViewModel: bannerViewModels, horizontalProductViewModel: horizontalProductViewModels, verticalProductViewModel: verticalProductViewModels)
-        
-      } catch {
-        print("network error: \(error)")
+  private func bindingViewModel() {
+    // $bannerViewModels -> 달러표시는 관찰할 수 있는 친구
+    // DispatchQueue.main 에서 진행
+    // 홈뷰컨이 살아있는 동안은 계속 관찰 cancellables이 사라지면 이 관찰도 끝 ... cancellables은 홈뷰컨이 사라지면 사라짐
+    viewModel.$bannerViewModels.receive(on: DispatchQueue.main)
+      .sink { [weak self] _ in
+        self?.applySnapshot()
+      }.store(in: &cancellables)
+    
+    viewModel.$horizontalProductViewModels.receive(on: DispatchQueue.main)
+      .sink { [weak self] _ in
+        self?.applySnapshot()
       }
-    }
+    
+    viewModel.$verticalProductViewModels.receive(on: DispatchQueue.main)
+      .sink { [weak self] _ in
+        self?.applySnapshot()
+      }
   }
   
   private func setDataSource() {
@@ -95,20 +88,26 @@ class HomeViewController: UIViewController {
     })
   }
   
-    private func applySnapshot(bannerViewModel: [HomeBannerCollectionViewCellViewModel], horizontalProductViewModel: [HomeProductCollectionViewCellViewModel], verticalProductViewModel: [HomeProductCollectionViewCellViewModel]) {
+    private func applySnapshot() {
     
     var snapShot: NSDiffableDataSourceSnapshot<Section, AnyHashable> = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
-    snapShot.appendSections([.banner])
-    snapShot.appendItems(bannerViewModel, toSection: .banner)
     
-    snapShot.appendSections([.horizontalProductItem])
-    snapShot
-      .appendItems(horizontalProductViewModel, toSection: .horizontalProductItem)
+      if let bannerViewModels = viewModel.bannerViewModels {  // 데이터가 있을 때만 아이템에 데이터 넣어주기
+        snapShot.appendSections([.banner])
+        snapShot.appendItems(bannerViewModels, toSection: .banner)
+      }
     
-    snapShot.appendSections([.verticalProductItem])
-    snapShot
-        .appendItems(verticalProductViewModel, toSection: .verticalProductItem)
-    
+      if let horizontalProductViewModels = viewModel.horizontalProductViewModels {
+        snapShot.appendSections([.horizontalProductItem])
+        snapShot
+          .appendItems(horizontalProductViewModels, toSection: .horizontalProductItem)
+      }
+      
+      if let verticalProductViewModels = viewModel.verticalProductViewModels {
+        snapShot.appendSections([.verticalProductItem])
+        snapShot
+          .appendItems(verticalProductViewModels, toSection: .verticalProductItem)
+      }
     
     dataSource?.apply(snapShot)
   }
