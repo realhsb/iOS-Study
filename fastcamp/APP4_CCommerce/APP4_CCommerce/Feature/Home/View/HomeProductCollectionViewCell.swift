@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 struct HomeProductCollectionViewCellViewModel: Hashable {
   let imageUrlString: String
@@ -27,7 +28,7 @@ class HomeProductCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var discountPriceLabel: UILabel!
   
   func setViewModel(_ viewModel: HomeProductCollectionViewCellViewModel) {
-    //        productItemImageView.image
+    productItemImageView.kf.setImage(with: URL(string: viewModel.imageUrlString)!)
     productTitleLabel.text = viewModel.title
     productReasonDiscountLabel.text = viewModel.reasonDiscountString
     originalPriceLabel.attributedText = NSMutableAttributedString(string: viewModel.originalPrice, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
@@ -47,6 +48,7 @@ extension HomeProductCollectionViewCell {
     let section: NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
     section.orthogonalScrollingBehavior = .continuous
     section.contentInsets = .init(top: 20, leading: 33, bottom: 0, trailing: 33)
+    section.interGroupSpacing = 10  // 섹션 아이템 간격 지정
     
     return section
   }
@@ -54,6 +56,7 @@ extension HomeProductCollectionViewCell {
   static func verticalProductItemLayout() -> NSCollectionLayoutSection {
     let itemSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / 2), heightDimension: .estimated(277))   // 그룹의 사이즈 그대로 가져간다
     let item: NSCollectionLayoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+    item.contentInsets = .init(top: 0, leading: 2.5, bottom: 0, trailing: 2.5)
     
     let groupSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(277))
     
@@ -61,7 +64,7 @@ extension HomeProductCollectionViewCell {
     
     let section: NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
     section.orthogonalScrollingBehavior = .none
-    section.contentInsets = .init(top: 20, leading: 19, bottom: 0, trailing: 19)
+    section.contentInsets = .init(top: 20, leading: 19 - 2.5, bottom: 0, trailing: 19 - 2.5)
     
     return section
   }

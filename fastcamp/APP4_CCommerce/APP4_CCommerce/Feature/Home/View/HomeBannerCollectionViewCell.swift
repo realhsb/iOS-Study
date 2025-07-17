@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 struct HomeBannerCollectionViewCellViewModel: Hashable {
   let bannerImageUrl: String
@@ -15,7 +16,7 @@ class HomeBannerCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var imageView: UIImageView!
   
   func setViewModel(_ viewModel: HomeBannerCollectionViewCellViewModel) {
-//    imageView.image = viewModel.bannerImage
+    imageView.kf.setImage(with: URL(string: viewModel.bannerImageUrl))
   }
 }
 
