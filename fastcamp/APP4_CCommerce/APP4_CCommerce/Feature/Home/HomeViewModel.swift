@@ -99,4 +99,16 @@ class HomeViewModel {
     deinit {  // 뷰모델이 사라져야할 때 비동기 진행을 취소시킴
         loadDataTask?.cancel()
     }
+    
+    private func productToHomeProductCollectionViewCellViewModel(_ product: [Product]) -> [HomeProductCollectionViewCellViewModel] {
+        return product.map {
+            HomeProductCollectionViewCellViewModel(
+                imageUrlString: $0.imageUrl,
+                title: $0.title,
+                reasonDiscountString: $0.discount,
+                originalPrice: $0.originalPrice.moneyString,    // 가격에 콤마 넣기
+                discountPrice: $0.discountPrice.moneyString
+            )
+        }
+    }
 }
